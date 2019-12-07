@@ -12,7 +12,8 @@ using System.Xml.Serialization;
 using System.Data.OleDb;
 using System.Runtime.CompilerServices;
 using Excel = Microsoft.Office.Interop.Excel;
-
+using System.Runtime.Serialization;
+using System.Drawing.Text;
 
 namespace WindLoad
 {
@@ -21,6 +22,9 @@ namespace WindLoad
         Info info = new Info();
         XuLy xuly = new XuLy();
         public string fileName;
+        public string softName;
+        public double Wo,n;
+
         public frmMain()
         {
             //Gọi ham SplashScreen
@@ -30,7 +34,12 @@ namespace WindLoad
        
             InitializeComponent();//Khoi tao
                                   // t.Abort();//hủy t
-            
+            frmQuickStart qStart = new frmQuickStart();
+
+            qStart.EveOpen += new EventHandler(QStart_EveOpen);
+            qStart.ShowDialog(); 
+
+            softName = this.Text;
             dgvThongTin.RowHeadersVisible = dgvGioDong.RowHeadersVisible = false;
             dgvThongso.Rows.Add("Vùng gió");
             dgvThongso.Rows.Add("Dạng địa hình");
@@ -46,7 +55,7 @@ namespace WindLoad
             }
             //cbxTinh.Text = "Hà Nội";
             cbxAnToan.Text = "1.2";
-            cbxQuyDoi.Text = "Tải trọng tập trung (gán vào Diagram)";
+            
             labNhoCao.Text = "Phần nhô lên so với tầng mái\ncủa công trình(m):";
             cbxUnit.Text = "KN-m";
             dgvGioTinh.AllowUserToResizeRows = false;//Khong cho phep sua chieu cao hang
@@ -61,8 +70,9 @@ namespace WindLoad
             //
             //dgvGioDong.MaximumSize = tabControl.Width;
             cbxMode.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxQuyDoi.SelectedIndex = 1;
             panel1.Visible =panel2.Visible= false;
-
+            
 
 
 
@@ -77,11 +87,16 @@ namespace WindLoad
         {
             Application.Run(new frmStart());
         }
+        private void QStart_EveOpen(object sender, EventArgs e)
+        {
+            openFile();
+        }
         private void btnNhapFilemdb_Click(object sender, EventArgs e)
         {
 
             try
             {
+                
 
                 frmFilemdb mdb = new frmFilemdb();
                 mdb.ShowDialog();
@@ -163,7 +178,6 @@ namespace WindLoad
         private void Main_Load(object sender, EventArgs e)
         {
 
-
             //Goi gia tri nguoi dung cai dat
             Properties.Settings.Default.Reload();
 
@@ -186,9 +200,10 @@ namespace WindLoad
             cbxTinh.Text = "Hà Nội";
 
 
-            frmQuickStart qStart = new frmQuickStart();
-            qStart.ShowDialog();
+            
         }
+
+       
 
 
         //chon  huyen khi tinh thay doi
@@ -208,7 +223,7 @@ namespace WindLoad
 
             cbxHuyen.DataSource = tabl1;
             cbxHuyen.DisplayMember = "Huyen";
-            cbxHuyen.ValueMember = "ID";
+           cbxHuyen.ValueMember = "ID";
 
 
         }
@@ -330,8 +345,18 @@ namespace WindLoad
         private void runF5ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+           
+
+
+
+
+
+
+
+
+
             int tang = dgvThongTin.Rows.Count - 1;
-            try
+            // try
             {
                 //gio tinh
                 //XuLy xl = new XuLy();
@@ -362,8 +387,15 @@ namespace WindLoad
 
                 dgvGioTinh.Columns.Add("wx", "Wx\n" + unit);
                 dgvGioTinh.Columns.Add("wy", "Wy\n" + unit);
-
-                //Wtdth of columns
+                //Style Collumns
+                DataGridViewCellStyle fomatCell = new DataGridViewCellStyle();
+                fomatCell.Format = "N2";
+                for (int i = dgvGioTinh.Columns["Wxd"].Index; i < dgvGioTinh.Columns.Count; i++)
+                {
+                    dgvGioTinh.Columns[i].DefaultCellStyle.Format = fomatCell.Format;
+                }
+                dgvGioTinh.Columns["wx"].DefaultCellStyle.ForeColor = dgvGioTinh.Columns["wy"].DefaultCellStyle.ForeColor = Color.Red;
+                //Width of columns
 
                 dgvGioTinh.Columns["stt"].Width = 50;
                 dgvGioTinh.Columns["tang"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;//fill full
@@ -377,211 +409,329 @@ namespace WindLoad
                 dgvGioTinh.Columns["Wyh"].Width = 65;
                 dgvGioTinh.Columns["Wx"].Width = 80;
                 dgvGioTinh.Columns["Wy"].Width = 80;
-                dgvGioTinh.Columns["wx"].DefaultCellStyle.ForeColor = dgvGioTinh.Columns["wy"].DefaultCellStyle.ForeColor = Color.Red;
+               
 
-                dgvGioTinh.Rows.Add(tang + 1);
 
-                //double hTang1 = double.Parse(dgvGioTinh[2, 2].Value.ToString());
-                //dgvGioTinh[3, tang-1].Value=hTang1+ double.Parse(txtH.Text.ToString());
-                // int a = dgvThongTin.Rows.Count-1; //dem so dong trong dgvTongtin
-                int a = tang + 1;
-                dgvGioTinh["z", a].Value = -1 * float.Parse(txtH.Text);
+                dgvGioTinh.Rows.Add(tang);
+
+                //   int a = tang ;
+                double zo = -1 * float.Parse(txtH.Text);
+                dgvGioTinh["z", tang].Value = zo;
                 //Cap nhat thong so tu  dgcThongTin->dgvGioTinh
 
                 //Tinh toan z va k,Wx,Wy
-                double z = 0;
+                double zi = 0;
 
-                double n, k, Wo, H, H1;
+                double  k, H, H1, W,Wxd=0,Wxh=0,Wyd=0,Wyh=0,Wx=0,Wy=0,lx=0,ly=0;
                 double ced = frmThietLap.cday;
                 double ceh = Math.Abs(frmThietLap.chut);
                 double ce = ced + ceh;
-                //Gan Htang truoc đe tinh theo rad1- 2 tang truyen ve
-                for (int i = a - 1; i >= 1; --i)
-                {
-                    dgvGioTinh["ht", i].Value = dgvThongTin[2, i - 1].Value.ToString();//Ht
-                    //Tinhz
-                    z = double.Parse(dgvGioTinh.Rows[i].Cells[2].Value.ToString()) + double.Parse(dgvGioTinh[3, i + 1].Value.ToString());
-                    dgvGioTinh["z", i].Value = z;
-                }
-
-                double zmax = z + double.Parse(dgvGioTinh["ht", 1].Value.ToString());
-                dgvGioTinh["z", 0].Value = zmax;
-
-                for (int i = a - 1; i >= 1; --i)
-                {
-
-                    //Cap nhat thong so tu  dgcThongTin->dgvGioTinh
-
-                    //dgvGioTinh["stt", i].Value = dgvThongTin[0, i].Value.ToString();//STT
-                    //dgvGioTinh["tang", i].Value = dgvThongTin[1, i].Value.ToString();//Tang
-                    //dgvGioTinh["ht", i].Value = dgvThongTin[2, i].Value.ToString();//Ht
-
-                    dgvGioTinh["stt", i].Value = i;//STT
-                    dgvGioTinh["tang", i].Value = dgvThongTin["tang", i - 1].Value;//Tang
-
-                    //Tinh z
-
-                    z = double.Parse(dgvGioTinh.Rows[i].Cells[2].Value.ToString()) + double.Parse(dgvGioTinh[3, i + 1].Value.ToString());
-                    //dgvGioTinh["z", i].Value = z;
-                    //Tinh k=1.884*(z/zt)^2m ,m va zt phu thuoc va dang dia hinh Công thức xác định các hệ số này được trình bày trong phụ lục A.2 và A.3 của TCXD 229:1999
-
-                    k = XuLy.Tinhk(z, char.Parse(cbxDiaHinh.Text));
-                    dgvGioTinh["k", i].Value = k;
-                    //Tinh Wx,Wy cho truong hop Tap phan bo tren dam bien: Wx =n*Wo*k*h
-                    n = double.Parse(cbxAnToan.Text);
-                    Wo = double.Parse(dgvThongso["GiaTri", 2].Value.ToString());
-
-                    //Kiem tra chieu cao tang cuoi cung de tinh z vaf chieu cao don gio
-                    double zi1 = double.Parse(dgvGioTinh["z", i + 1].Value.ToString());
-                    zi1 = zi1 >= 0 ? zi1 : 0;
-                    //Chieu cao dong gio H;
-                    H = double.Parse(dgvGioTinh["z", i].Value.ToString()) - zi1;//double.Parse(dgvGioTinh["z", i+1].Value.ToString());//H tang duoi
-
-                    // dgvGioTinh["wx", i].Value = xl.tinhWx(n, Wo, k, H);
-
-
-
-                    //Tinh Wx,Wy cho truong hop tai don ve dm bien
-
-                    //frmThietLap thietLap = new frmThietLap();
-
-                    // kiem tra so do truyen gio
-                    double tinhWx = 0, tinhWy = 0, tinhWxd = 0, tinhWxh = 0, tinhWyd = 0, tinhWyh = 0;
-                    if (rad2.Checked == true)//Tinh theo phuong phap tang tu truyen ve
-                    {
-                        switch (cbxQuyDoi.Text)
-                        {
-
-                            case "Tải trọng phân bố (gán vào dầm biên)":
-                                {
-                                    tinhWxd = n * Wo * k * H * ced;
-                                    tinhWxh = n * Wo * k * H * ceh;
-                                    tinhWyd = n * Wo * k * H * ced;
-                                    tinhWyh = n * Wo * k * H * ceh;
-                                    tinhWx = n * Wo * k * H * ce;
-                                    tinhWy = n * Wo * k * H * ce;
-
-                                    break;
-                                }
-                            case "Tải trọng tập trung (gán vào Diagram)":
-                                {
-                                    tinhWxd = n * Wo * k * H * ced * double.Parse(dgvThongTin["Ly", i - 1].Value.ToString());//Ly
-                                    tinhWxh = n * Wo * k * H * ceh * double.Parse(dgvThongTin["Ly", i - 1].Value.ToString());//
-                                    tinhWyd = n * Wo * k * H * ced * double.Parse(dgvThongTin["Lx", i - 1].Value.ToString());//Lx
-                                    tinhWyh = n * Wo * k * H * ceh * double.Parse(dgvThongTin["Lx", i - 1].Value.ToString());//
-
-
-
-                                    tinhWx = n * Wo * k * H * ce * double.Parse(dgvThongTin["Ly", i - 1].Value.ToString());//Ly
-                                    tinhWy = n * Wo * k * H * ce * double.Parse(dgvThongTin["Lx", i - 1].Value.ToString());//Lx;
-                                    break;
-                                }
-
-                        }
-
-                    }
-                    else//rad1 duoc chon-Tinh thep so do 2 tang truyen ve
-                    {
-                        //double zi11 = double.Parse(dgvGioTinh["z", i - 1].Value.ToString());//tang tren
-                        double zi11 = double.Parse(dgvGioTinh["z", i - 1].Value.ToString()); ;//tang tren - khong can kiem tra truong hop <0 vi k=0;
-                        double zi12 = double.Parse(dgvGioTinh["z", i].Value.ToString());//tang dang xet
-                        zi12 = zi12 > 0 ? zi12 : 0;
-                        H1 = zi11 - zi12;//dgvGioTinh["ht", i - 1].Value != null ? double.Parse(dgvGioTinh["ht", i - 1].Value.ToString()) : 0;//H tang tren - Sd toan tu 3 ngoi
-
-                        switch (cbxQuyDoi.Text)
-                        {
-
-                            case "Tải trọng phân bố (gán vào dầm biên)":
-                                {
-
-                                    tinhWxd = n * Wo * k * 0.5 * (H + H1) * ced;
-                                    tinhWxh = n * Wo * k * 0.5 * (H + H1) * ceh;
-                                    tinhWyd = n * Wo * k * 0.5 * (H + H1) * ced;
-                                    tinhWyh = n * Wo * k * 0.5 * (H + H1) * ceh;
-
-                                    tinhWx = n * Wo * k * 0.5 * (H + H1) * ce;
-                                    tinhWy = n * Wo * k * 0.5 * (H + H1) * ce;
-
-                                    break;
-                                }
-                            case "Tải trọng tập trung (gán vào Diagram)":
-                                {
-                                    tinhWxd = n * Wo * k * 0.5 * (H + H1) * ced * double.Parse(dgvThongTin["Ly", i - 1].Value.ToString());//Ly
-                                    tinhWxh = n * Wo * k * 0.5 * (H + H1) * ceh * double.Parse(dgvThongTin["Ly", i - 1].Value.ToString());//
-                                    tinhWyd = n * Wo * k * 0.5 * (H + H1) * ced * double.Parse(dgvThongTin["Lx", i - 1].Value.ToString());//Lx
-                                    tinhWyh = n * Wo * k * 0.5 * (H + H1) * ceh * double.Parse(dgvThongTin["Lx", i - 1].Value.ToString());//
-
-
-                                    tinhWx = n * Wo * k * 0.5 * (H + H1) * ce * double.Parse(dgvThongTin["Ly", i - 1].Value.ToString());//Ly
-                                    tinhWy = n * Wo * k * 0.5 * (H + H1) * ce * double.Parse(dgvThongTin["Lx", i - 1].Value.ToString());//Lx;
-                                    break;
-                                }
-
-                        }
-                    }
-                    dgvGioTinh["wxd", i].Value = Math.Round(tinhWxd, 2);
-                    dgvGioTinh["wxh", i].Value = Math.Round(tinhWxh, 2);
-                    dgvGioTinh["wyd", i].Value = Math.Round(tinhWyd, 2);
-                    dgvGioTinh["wyh", i].Value = Math.Round(tinhWyh, 2);
-
-                    dgvGioTinh["wx", i].Value = Math.Round(tinhWx, 2);
-                    dgvGioTinh["wy", i].Value = Math.Round(tinhWy, 2);
-
-
-                }
-
-
-                //Gan lại gia trị tang tren cung khi có phần nhô cao hơn tầng mái
+                Wo = (double)dgvThongso.Rows[2].Cells["GiaTri"].Value;
                 n = double.Parse(cbxAnToan.Text);
-                double Wxnho, Wynho, Lxnho, Lynho, Wxdnho, Wxhnho, Wydnho, Wyhnho;
-                Wo = double.Parse(dgvThongso["GiaTri", 2].Value.ToString());
-                k = XuLy.Tinhk(z, char.Parse(cbxDiaHinh.Text));// z luc nay se nhan gia trị của vong lap cuoi cung~z cua tang tren cung => k la cua tang tren cung
-                H = double.Parse(txtHtNho.Text.ToString());
-                Lxnho = double.Parse(txtLxNho.Text);
-                Lynho = double.Parse(txtLyNho.Text);
-                if (cbxQuyDoi.Text == "Tải trọng phân bố (gán vào dầm biên)")
+                //Gan Htang truoc đe tinh theo rad1- 2 tang truyen ve
+
+
+
+
+
+
+
+                double hti, hti1=0,httb; //httb= 0.5*(hti+hti1)
+                double sumZi=0;
+                for (int i =tang-1; i >=0;i--)
                 {
-                    Wxdnho = n * Wo * k * H * ced;
-                    Wxhnho = n * Wo * k * H * ceh;
-                    Wydnho = n * Wo * k * H * ced;
-                    Wyhnho = n * Wo * k * H * ceh;
+                    dgvGioTinh["stt", i].Value = dgvThongTin["stt", i].Value;
+                    dgvGioTinh["tang", i].Value = dgvThongTin["tang", i].Value;
 
-                    Wxnho = n * k * Wo * H * ce;
-                    Wynho = n * k * Wo * H * ce;
+                    hti =double.Parse( dgvThongTin["Ht", i].Value.ToString());//Ht
+                    dgvGioTinh["ht", i].Value = hti;
+
+                   //Tinhzi
+                   sumZi += hti;
+                    zi = sumZi + zo;
+                   dgvGioTinh["z", i].Value = zi;
+                    //tinh K
+                    k = XuLy.Tinhk(zi, char.Parse(cbxDiaHinh.Text));
+                    dgvGioTinh["k", i].Value = k;
+                    W = n * Wo * k ;
+
+                    if(rad2.Checked == true)// don toan bo len tang phia tren
+                    {
+
+                        Wxd = W * hti * ced;
+                        Wxh = W * hti * ceh;
+                        Wyd = W * hti * ced;
+                        Wyh = W * hti * ceh;
+                        Wx = Wxd + Wxh;
+                        Wy = Wyd + Wyh;
+
+                        if (cbxQuyDoi.SelectedIndex==1)// gan vao dam bien
+                        {
+
+                            dgvGioTinh["wxd", i].Value = Wxd;
+                            dgvGioTinh["wxh", i].Value = Wxh;
+                            dgvGioTinh["wyd", i].Value = Wyd;
+                            dgvGioTinh["wyh", i].Value = Wyh;
+                            dgvGioTinh["wx", i].Value = Wx;
+                            dgvGioTinh["wy", i].Value = Wy;
+                        }
+                        else // gan vao tam hinh hoc
+                        {
+                            lx =double.Parse( dgvThongTin["Lx", i].Value.ToString());
+                            ly = double.Parse(dgvThongTin["Ly", i].Value.ToString());
+                            dgvGioTinh["wxd", i].Value = Wxd*ly;
+                            dgvGioTinh["wxh", i].Value = Wxh*ly;
+                            dgvGioTinh["wyd", i].Value = Wyd*lx;
+                            dgvGioTinh["wyh", i].Value = Wyh*lx;
+                            dgvGioTinh["wx", i].Value = Wx*ly;
+                            dgvGioTinh["wy", i].Value = Wy*lx;
+                        }
+                       
+
+                    }
+                    else // tai chia deu sang 2 tang
+                    {
+                       
+                        if (i - 1 >= 0)// tinh tu tang 1 den tang n-1
+                        {
+                            //chieu cao tang phia tren tang hi
+                            hti1 = double.Parse(dgvThongTin["Ht", i - 1].Value.ToString());//Hti
+                            dgvGioTinh["wxd", i].Value = hti;
+                            dgvGioTinh["wxh", i - 1].Value = hti1;
+                            httb = 0.5 * (hti + hti1);
+                            Wxd = W * httb * ced;
+                            Wxh = W * httb * ceh;
+                            Wyd = W * httb * ced;
+                            Wyh = W * httb * ceh;
+                            Wx = Wxd + Wxh;
+                            Wy = Wyd + Wyh;
+
+                            if (cbxQuyDoi.SelectedIndex == 1)// gan vao dam bien
+                            {
+
+                                dgvGioTinh["wxd", i].Value = Wxd;
+                                dgvGioTinh["wxh", i].Value = Wxh;
+                                dgvGioTinh["wyd", i].Value = Wyd;
+                                dgvGioTinh["wyh", i].Value = Wyh;
+                                dgvGioTinh["wx", i].Value = Wx;
+                                dgvGioTinh["wy", i].Value = Wy;
+                            }
+                            else // gan vao tam hinh hoc
+                            {
+                                lx = double.Parse(dgvThongTin["Lx", i].Value.ToString());
+                                ly = double.Parse(dgvThongTin["Ly", i].Value.ToString());
+                                dgvGioTinh["wxd", i].Value = Wxd * ly;
+                                dgvGioTinh["wxh", i].Value = Wxh * ly;
+                                dgvGioTinh["wyd", i].Value = Wyd * lx;
+                                dgvGioTinh["wyh", i].Value = Wyh * lx;
+                                dgvGioTinh["wx", i].Value = Wx * ly;
+                                dgvGioTinh["wy", i].Value = Wy * lx;
+                            }
+
+                            //tinh trieng cho tang mai;
+
+
+                            InstalledFontCollection installedFontCollection = new InstalledFontCollection();
+                            this.Text = installedFontCollection.Families.Length.ToString();
+                            foreach (var item in installedFontCollection.Families)
+                            {
+                                cbxQuyDoi.Items.Add( item.Name);
+                            }
+
+
+
+
+                        }
+                       
+
+                    }
+
+                    tabControl.SelectedTab = tabControl.TabPages["tabGioTinh"];
+                  //  tabControl.SelectedIndex = 1;
+
                 }
-                else//Tải trọng tập trung (gán vào Diagram)
-                {
-                    Wxdnho = n * Wo * k * H * ced * Lynho;
-                    Wxhnho = n * Wo * k * H * ceh * Lynho;
-                    Wydnho = n * Wo * k * H * ced * Lxnho;
-                    Wyhnho = n * Wo * k * H * ceh * Lxnho;
-
-                    Wxnho = n * k * Wo * H * ce * Lynho;
-                    Wynho = n * k * Wo * H * ce * Lxnho;
-                }
-                dgvGioTinh["wxd", 1].Value = Math.Round(double.Parse(dgvGioTinh["wxd", 1].Value.ToString()) + Wxdnho, 2);
-                dgvGioTinh["wxh", 1].Value = Math.Round(double.Parse(dgvGioTinh["wxh", 1].Value.ToString()) + Wxhnho, 2);
-                dgvGioTinh["wyd", 1].Value = Math.Round(double.Parse(dgvGioTinh["wyd", 1].Value.ToString()) + Wydnho, 2);
-                dgvGioTinh["wyh", 1].Value = Math.Round(double.Parse(dgvGioTinh["wyh", 1].Value.ToString()) + Wyhnho, 2);
-
-                dgvGioTinh["wx", 1].Value = Math.Round(double.Parse(dgvGioTinh["wx", 1].Value.ToString()) + Wxnho, 2);
-                dgvGioTinh["wy", 1].Value = Math.Round(double.Parse(dgvGioTinh["wy", 1].Value.ToString()) + Wynho, 2);
-                tabControl.SelectedIndex = 1;
-                // huy doi tuong 
-                dgvGioTinh["z", a].Value = null;
-                dgvGioTinh.Rows.RemoveAt(0);//Remove(dgvGioTinh.Rows[0]);
-
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Sai dữ liệu\nKiểm tra lại\n:" + ex, "WindLoad", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    double zmax = z + double.Parse(dgvGioTinh["ht", 1].Value.ToString());
+            //    dgvGioTinh["z", 0].Value = zmax;
 
-            }
+            //    for (int i = a -1; i >= 1; i--)
+            //    {
 
-            dgvGioDong.Rows.Clear();
-            dgvGioDong.Columns.Clear();
+            //        //Cap nhat thong so tu  dgcThongTin->dgvGioTinh
+
+            //        //dgvGioTinh["stt", i].Value = dgvThongTin[0, i].Value.ToString();//STT
+            //        //dgvGioTinh["tang", i].Value = dgvThongTin[1, i].Value.ToString();//Tang
+            //        //dgvGioTinh["ht", i].Value = dgvThongTin[2, i].Value.ToString();//Ht
+
+            //        dgvGioTinh["stt", i].Value = i;//STT
+            //        dgvGioTinh["tang", i].Value = dgvThongTin["tang", i - 1].Value;//Tang
+
+            //        //Tinh z
+
+            //        z = double.Parse(dgvGioTinh.Rows[i].Cells[2].Value.ToString()) + double.Parse(dgvGioTinh[3, i + 1].Value.ToString());
+            //        //dgvGioTinh["z", i].Value = z;
+            //        //Tinh k=1.884*(z/zt)^2m ,m va zt phu thuoc va dang dia hinh Công thức xác định các hệ số này được trình bày trong phụ lục A.2 và A.3 của TCXD 229:1999
+
+            //        k = XuLy.Tinhk(z, char.Parse(cbxDiaHinh.Text));
+            //        dgvGioTinh["k", i].Value = k;
+            //        //Tinh Wx,Wy cho truong hop Tap phan bo tren dam bien: Wx =n*Wo*k*h
+            //        
+            //        Wo = double.Parse(dgvThongso["GiaTri", 2].Value.ToString());
+
+            //        //Kiem tra chieu cao tang cuoi cung de tinh z vaf chieu cao don gio
+            //        double zi1 = double.Parse(dgvGioTinh["z", i + 1].Value.ToString());
+            //        zi1 = zi1 >= 0 ? zi1 : 0;
+            //        //Chieu cao dong gio H;
+            //        H = double.Parse(dgvGioTinh["z", i].Value.ToString()) - zi1;//double.Parse(dgvGioTinh["z", i+1].Value.ToString());//H tang duoi
+
+            //        // dgvGioTinh["wx", i].Value = xl.tinhWx(n, Wo, k, H);
+
+
+
+            //        //Tinh Wx,Wy cho truong hop tai don ve dm bien
+
+            //        //frmThietLap thietLap = new frmThietLap();
+
+            //        // kiem tra so do truyen gio
+            //        double tinhWx = 0, tinhWy = 0, tinhWxd = 0, tinhWxh = 0, tinhWyd = 0, tinhWyh = 0;
+            //        if (rad2.Checked == true)//Tinh theo phuong phap tang tu truyen ve
+            //        {
+            //            switch (cbxQuyDoi.Text)
+            //            {
+
+            //                case "Tải trọng phân bố (gán vào dầm biên)":
+            //                    {
+            //                        tinhWxd = n * Wo * k * H * ced;
+            //                        tinhWxh = n * Wo * k * H * ceh;
+            //                        tinhWyd = n * Wo * k * H * ced;
+            //                        tinhWyh = n * Wo * k * H * ceh;
+            //                        tinhWx = n * Wo * k * H * ce;
+            //                        tinhWy = n * Wo * k * H * ce;
+
+            //                        break;
+            //                    }
+            //                case "Tải trọng tập trung (gán vào Diagram)":
+            //                    {
+            //                        tinhWxd = n * Wo * k * H * ced * double.Parse(dgvThongTin["Ly", i - 1].Value.ToString());//Ly
+            //                        tinhWxh = n * Wo * k * H * ceh * double.Parse(dgvThongTin["Ly", i - 1].Value.ToString());//
+            //                        tinhWyd = n * Wo * k * H * ced * double.Parse(dgvThongTin["Lx", i - 1].Value.ToString());//Lx
+            //                        tinhWyh = n * Wo * k * H * ceh * double.Parse(dgvThongTin["Lx", i - 1].Value.ToString());//
+
+
+
+            //                        tinhWx = n * Wo * k * H * ce * double.Parse(dgvThongTin["Ly", i - 1].Value.ToString());//Ly
+            //                        tinhWy = n * Wo * k * H * ce * double.Parse(dgvThongTin["Lx", i - 1].Value.ToString());//Lx;
+            //                        break;
+            //                    }
+
+            //            }
+
+            //        }
+            //        else//rad1 duoc chon-Tinh thep so do 2 tang truyen ve
+            //        {
+            //            //double zi11 = double.Parse(dgvGioTinh["z", i - 1].Value.ToString());//tang tren
+            //            double zi11 = double.Parse(dgvGioTinh["z", i - 1].Value.ToString()); ;//tang tren - khong can kiem tra truong hop <0 vi k=0;
+            //            double zi12 = double.Parse(dgvGioTinh["z", i].Value.ToString());//tang dang xet
+            //            zi12 = zi12 > 0 ? zi12 : 0;
+            //            H1 = zi11 - zi12;//dgvGioTinh["ht", i - 1].Value != null ? double.Parse(dgvGioTinh["ht", i - 1].Value.ToString()) : 0;//H tang tren - Sd toan tu 3 ngoi
+
+            //            switch (cbxQuyDoi.Text)
+            //            {
+
+            //                case "Tải trọng phân bố (gán vào dầm biên)":
+            //                    {
+
+            //                        tinhWxd = n * Wo * k * 0.5 * (H + H1) * ced;
+            //                        tinhWxh = n * Wo * k * 0.5 * (H + H1) * ceh;
+            //                        tinhWyd = n * Wo * k * 0.5 * (H + H1) * ced;
+            //                        tinhWyh = n * Wo * k * 0.5 * (H + H1) * ceh;
+            //                        MessageBox.Show(Convert.ToString(H + "--" + H1));
+            //                        tinhWx = n * Wo * k * 0.5 * (H + H1) * ce;
+            //                        tinhWy = n * Wo * k * 0.5 * (H + H1) * ce;
+
+            //                        break;
+            //                    }
+            //                case "Tải trọng tập trung (gán vào Diagram)":
+            //                    {
+            //                        tinhWxd = n * Wo * k * 0.5 * (H + H1) * ced * double.Parse(dgvThongTin["Ly", i - 1].Value.ToString());//Ly
+                                    
+            //                        tinhWxh = n * Wo * k * 0.5 * (H + H1) * ceh * double.Parse(dgvThongTin["Ly", i - 1].Value.ToString());//
+            //                        tinhWyd = n * Wo * k * 0.5 * (H + H1) * ced * double.Parse(dgvThongTin["Lx", i - 1].Value.ToString());//Lx
+            //                        tinhWyh = n * Wo * k * 0.5 * (H + H1) * ceh * double.Parse(dgvThongTin["Lx", i - 1].Value.ToString());//
+
+
+            //                        tinhWx = n * Wo * k * 0.5 * (H + H1) * ce * double.Parse(dgvThongTin["Ly", i - 1].Value.ToString());//Ly
+            //                        tinhWy = n * Wo * k * 0.5 * (H + H1) * ce * double.Parse(dgvThongTin["Lx", i - 1].Value.ToString());//Lx;
+            //                        break;
+            //                    }
+
+            //            }
+            //        }
+            //        dgvGioTinh["wxd", i].Value = Math.Round(tinhWxd, 2);
+            //        dgvGioTinh["wxh", i].Value = Math.Round(tinhWxh, 2);
+            //        dgvGioTinh["wyd", i].Value = Math.Round(tinhWyd, 2);
+            //        dgvGioTinh["wyh", i].Value = Math.Round(tinhWyh, 2);
+
+            //        dgvGioTinh["wx", i].Value = Math.Round(tinhWx, 2);
+            //        dgvGioTinh["wy", i].Value = Math.Round(tinhWy, 2);
+
+
+            //    }
+
+
+            //    //Gan lại gia trị tang tren cung khi có phần nhô cao hơn tầng mái
+            //    n = double.Parse(cbxAnToan.Text);
+            //    double Wxnho, Wynho, Lxnho, Lynho, Wxdnho, Wxhnho, Wydnho, Wyhnho;
+            //    Wo = double.Parse(dgvThongso["GiaTri", 2].Value.ToString());
+            //    k = XuLy.Tinhk(z, char.Parse(cbxDiaHinh.Text));// z luc nay se nhan gia trị của vong lap cuoi cung~z cua tang tren cung => k la cua tang tren cung
+            //    H = double.Parse(txtHtNho.Text.ToString());
+            //    Lxnho = double.Parse(txtLxNho.Text);
+            //    Lynho = double.Parse(txtLyNho.Text);
+            //    if (cbxQuyDoi.Text == "Tải trọng phân bố (gán vào dầm biên)")
+            //    {
+            //        Wxdnho = n * Wo * k * H * ced;
+            //        Wxhnho = n * Wo * k * H * ceh;
+            //        Wydnho = n * Wo * k * H * ced;
+            //        Wyhnho = n * Wo * k * H * ceh;
+                    
+            //        Wxnho = n * k * Wo * H * ce;
+            //        Wynho = n * k * Wo * H * ce;
+            //    }
+            //    else//Tải trọng tập trung (gán vào Diagram)
+            //    {
+            //        Wxdnho = n * Wo * k * H * ced * Lynho;
+            //        Wxhnho = n * Wo * k * H * ceh * Lynho;
+            //        Wydnho = n * Wo * k * H * ced * Lxnho;
+            //        Wyhnho = n * Wo * k * H * ceh * Lxnho;
+                  
+            //        Wxnho = n * k * Wo * H * ce * Lynho;
+            //        Wynho = n * k * Wo * H * ce * Lxnho;
+            //    }
+            //    dgvGioTinh["wxd", 1].Value = Math.Round(double.Parse(dgvGioTinh["wxd", 1].Value.ToString()) + Wxdnho, 2);
+               
+            //    dgvGioTinh["wxh", 1].Value = Math.Round(double.Parse(dgvGioTinh["wxh", 1].Value.ToString()) + Wxhnho, 2);
+            //    dgvGioTinh["wyd", 1].Value = Math.Round(double.Parse(dgvGioTinh["wyd", 1].Value.ToString()) + Wydnho, 2);
+            //    dgvGioTinh["wyh", 1].Value = Math.Round(double.Parse(dgvGioTinh["wyh", 1].Value.ToString()) + Wyhnho, 2);
+
+            //    dgvGioTinh["wx", 1].Value = Math.Round(double.Parse(dgvGioTinh["wx", 1].Value.ToString()) + Wxnho, 2);
+            //    dgvGioTinh["wy", 1].Value = Math.Round(double.Parse(dgvGioTinh["wy", 1].Value.ToString()) + Wynho, 2);
+            //    tabControl.SelectedIndex = 1;
+            //    // huy doi tuong 
+            //    dgvGioTinh["z", a].Value = null;
+            //    dgvGioTinh.Rows.RemoveAt(0);//Remove(dgvGioTinh.Rows[0]);
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Sai dữ liệu\nKiểm tra lại\n:" + ex, "WindLoad", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            //}
+
+            //dgvGioDong.Rows.Clear();
+            //dgvGioDong.Columns.Clear();
 
             // gio dong
+            /*
             if (40 < float.Parse(dgvGioTinh["z", 1].Value.ToString()))
             {
                 try
@@ -633,7 +783,7 @@ namespace WindLoad
 
                     }
                 }
-
+              
 
                 catch
                 {
@@ -644,8 +794,12 @@ namespace WindLoad
 
 
             }
+              */
         }
 
+
+       
+     
         private void TinhGioDong()
         {
             //Kiem trà f1 vs fL
@@ -778,14 +932,6 @@ namespace WindLoad
         }
 
 
-
-
-
-
-
-
-
-
         //Import
         private void accessToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -821,8 +967,8 @@ namespace WindLoad
 
                 
             }
-           
-
+            fileName = null;
+            this.Text = softName;
 
         }
         private void Clear() 
@@ -1034,71 +1180,97 @@ namespace WindLoad
 
         private void openFile()
         {
-            OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "All WindLoad File(*.wdl) |*.wdl|(All File)|*.*";
-            if (open.ShowDialog() == DialogResult.OK)
+            try
             {
-                FileStream fs = new FileStream(open.FileName, FileMode.Open, FileAccess.Read);
-                StreamReader sr = new StreamReader(fs);
-
-                XmlSerializer deseri = new XmlSerializer(typeof(Info));
-                //deseri.Deserialize(fs);
-
-                info = (Info)deseri.Deserialize(fs);//ep kieu ve obj
-                cbxTinh.Text = info.Tinh;
-                cbxHuyen.Text = info.Huyen;
-                cbxDiaHinh.Text = info.DiaHinh;
-                cbxAnToan.Text = info.HeSoAnToan;
-                txtH.Text = info.H;
-                txtHtNho.Text = info.HtNho;
-                txtLxNho.Text = info.LxNho;
-                txtLyNho.Text = info.LyNho;
-                //Add new project to dgvThong tin
-                dgvThongTin.Rows.Clear();
-                dgvThongTin.Rows.Add(info.SoTang);
-
-                for (int i = 0; i < info.SoTang; i++)
+                OpenFileDialog open = new OpenFileDialog();
+                open.Filter = "All WindLoad File(*.wdl) |*.wdl|(All File)|*.*";
+                if (open.ShowDialog() == DialogResult.OK)
                 {
-                    dgvThongTin["STT", i].Value = info.STT[i];
-                    dgvThongTin["Tang", i].Value = info.TenTang[i];
-                    dgvThongTin["Ht", i].Value = info.CaoTang[i];
-                    dgvThongTin["Lx", i].Value = info.Lx[i];
-                    dgvThongTin["Ly", i].Value = info.Ly[i];
-                }
-                fs.Close();
-            }
+                    FileStream fs = new FileStream(open.FileName, FileMode.Open, FileAccess.Read);
+                    StreamReader sr = new StreamReader(fs);
 
-            else
-            {
-                // MessageBox.Show("Đã xảy ra lỗi khi mở file \n Hãy kiểm tra lại ", "WindLoad");
+                    XmlSerializer deseri = new XmlSerializer(typeof(Info));
+                    //deseri.Deserialize(fs);
+
+                    info = (Info)deseri.Deserialize(fs);//ep kieu ve obj
+                    cbxTinh.Text = info.Tinh;
+                    cbxHuyen.Text = info.Huyen;
+                    cbxDiaHinh.Text = info.DiaHinh;
+                    cbxAnToan.Text = info.HeSoAnToan;
+                    txtH.Text = info.H;
+                    txtHtNho.Text = info.HtNho;
+                    txtLxNho.Text = info.LxNho;
+                    txtLyNho.Text = info.LyNho;
+                    //Add new project to dgvThong tin
+                    dgvThongTin.Rows.Clear();
+                    dgvThongTin.Rows.Add(info.SoTang);
+
+                    for (int i = 0; i < info.SoTang; i++)
+                    {
+                        dgvThongTin["STT", i].Value = info.STT[i];
+                        dgvThongTin["Tang", i].Value = info.TenTang[i];
+                        dgvThongTin["Ht", i].Value = info.CaoTang[i];
+                        dgvThongTin["Lx", i].Value = info.Lx[i];
+                        dgvThongTin["Ly", i].Value = info.Ly[i];
+                    }
+                    fs.Close();
+                    fileName = open.FileName;
+                    this.Text = softName + " [" + fileName + " ]";
+                }
+
+                else
+                {
+                    // MessageBox.Show("Đã xảy ra lỗi khi mở file \n Hãy kiểm tra lại ", "WindLoad");
+                }
             }
+            catch (Exception exception)
+            {
+
+                MessageBox.Show("Không mở được file" + exception);
+            }
+           
 
         }
+
 
         private void saveFile()
         {
-
-            SaveFileDialog saveFile = new SaveFileDialog();
-            saveFile.Title = "Chọn nơi lưu file";
-            saveFile.Filter = "All WindLoad File(*.wdl)|*.wdl|All File(*.*)|*.*";
-            saveFile.FileName = "WindLoad";
-            saveFile.DefaultExt = ".wdl";
-            DialogResult d = saveFile.ShowDialog();
-            if (d == DialogResult.OK)
+            if (fileName==null)
             {
+                SaveFileDialog saveFile = new SaveFileDialog();
+                //saveFile.Title = "Chọn nơi lưu file";
+                saveFile.Filter = "All WindLoad File(*.wdl)|*.wdl|All File(*.*)|*.*";
+                saveFile.FileName = "WindLoad";
+                saveFile.DefaultExt = ".wdl";
+                DialogResult d = saveFile.ShowDialog();
+                if (d == DialogResult.OK)
+                {
 
-                fileName = saveFile.FileName;
+                    fileName = saveFile.FileName;
 
 
-                nenThongtin();
-                info.Serializer(saveFile.FileName);
+                    nenThongtin();
+                    info.Serializer(saveFile.FileName);
+                    this.Text = softName + " [" + fileName + " ]";
+                }
+                else
+                {
+                    MessageBox.Show("Bạn chưa lưu file !");
+                }
+
             }
             else
             {
-                MessageBox.Show("Bạn chưa lưu file !");
+               
+                nenThongtin();
+                info.Serializer(fileName);
+                this.Text = softName + " [" + fileName + " ]";
             }
 
+           
+
         }
+
         private void nenThongtin()
         {
             info.Tinh = cbxTinh.Text;
@@ -1158,6 +1330,12 @@ namespace WindLoad
                     }
                 
             }
+        }
+
+        private void strpSaveAs_Click(object sender, EventArgs e)
+        {
+            fileName = null;
+            saveFile();
         }
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)

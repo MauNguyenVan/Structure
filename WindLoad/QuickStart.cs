@@ -11,23 +11,33 @@ namespace WindLoad
 {
     public partial class frmQuickStart : Form
     {
+        public event EventHandler EveOpen;
         public frmQuickStart()
         {
             InitializeComponent();
         }
-       
-       
+
+     
+      
         private void BtnOPenFile_Click(object sender, EventArgs e)
         {
-            frmMain main= new frmMain();
-            main.OpenToolStripMenuItem_Click(sender, e);
+           
+          EveOpen.Invoke(sender, e);
             this.Close();
-
         }
 
-        private void BtnExit_Click(object sender, EventArgs e)
+       
+
+       
+
+        private void btnNewProject_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmQuickStart_FormClosing(object sender, FormClosingEventArgs e)
+        {
+         //   Application.Exit();
         }
     }
 }

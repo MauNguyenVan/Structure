@@ -201,7 +201,6 @@
             // 
             // dgvThongTin
             // 
-            this.dgvThongTin.AllowUserToDeleteRows = false;
             this.dgvThongTin.AllowUserToResizeRows = false;
             this.dgvThongTin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvThongTin.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -552,22 +551,22 @@
             // 
             this.rad2.AutoSize = true;
             this.rad2.BackColor = System.Drawing.Color.Transparent;
-            this.rad2.Checked = true;
             this.rad2.Location = new System.Drawing.Point(176, 42);
             this.rad2.Name = "rad2";
             this.rad2.Size = new System.Drawing.Size(132, 20);
             this.rad2.TabIndex = 0;
-            this.rad2.TabStop = true;
             this.rad2.Text = "Tầng t/ứ truyền về";
             this.rad2.UseVisualStyleBackColor = false;
             // 
             // rad1
             // 
             this.rad1.AutoSize = true;
+            this.rad1.Checked = true;
             this.rad1.Location = new System.Drawing.Point(7, 42);
             this.rad1.Name = "rad1";
             this.rad1.Size = new System.Drawing.Size(122, 20);
             this.rad1.TabIndex = 0;
+            this.rad1.TabStop = true;
             this.rad1.Text = " 2 tầng truyền về";
             this.rad1.UseVisualStyleBackColor = true;
             // 
@@ -721,28 +720,28 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.saveAsToolStripMenuItem.Text = "Save As";
             // 
             // importToolStripMenuItem
@@ -750,7 +749,7 @@
             this.importToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.accessToolStripMenuItem});
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.importToolStripMenuItem.Text = "Import";
             // 
             // accessToolStripMenuItem
@@ -766,7 +765,7 @@
             this.excelToolStripMenuItem,
             this.pDFToolStripMenuItem});
             this.exToolStripMenuItem.Name = "exToolStripMenuItem";
-            this.exToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.exToolStripMenuItem.Text = "Export";
             // 
             // excelToolStripMenuItem
@@ -785,7 +784,7 @@
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -816,14 +815,14 @@
             // thietLapToolStripMenuItem
             // 
             this.thietLapToolStripMenuItem.Name = "thietLapToolStripMenuItem";
-            this.thietLapToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.thietLapToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.thietLapToolStripMenuItem.Text = "Thiết lập thông sô";
             this.thietLapToolStripMenuItem.Click += new System.EventHandler(this.thietLapToolStripMenuItem_Click);
             // 
             // resetToolStripMenuItem
             // 
             this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
-            this.resetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.resetToolStripMenuItem.Text = "Reset";
             this.resetToolStripMenuItem.Click += new System.EventHandler(this.resetToolStripMenuItem_Click);
             // 
@@ -989,6 +988,7 @@
             this.strpSaveAs.Name = "strpSaveAs";
             this.strpSaveAs.Size = new System.Drawing.Size(23, 22);
             this.strpSaveAs.Text = "Save As";
+            this.strpSaveAs.Click += new System.EventHandler(this.strpSaveAs_Click);
             // 
             // toolStripSeparator
             // 

@@ -93,5 +93,10 @@ namespace WindLoad
                 dgvSetMode["phuongY", i].Value= true;
             }
         }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
