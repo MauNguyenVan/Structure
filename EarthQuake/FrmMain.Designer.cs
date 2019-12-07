@@ -104,7 +104,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 41);
+            this.label1.Location = new System.Drawing.Point(9, 43);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 18);
@@ -124,7 +124,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 80);
+            this.label2.Location = new System.Drawing.Point(9, 82);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 18);
@@ -150,7 +150,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 119);
+            this.label3.Location = new System.Drawing.Point(9, 121);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 18);
@@ -160,7 +160,7 @@
             // llab
             // 
             this.llab.AutoSize = true;
-            this.llab.Location = new System.Drawing.Point(137, 118);
+            this.llab.Location = new System.Drawing.Point(137, 120);
             this.llab.Name = "llab";
             this.llab.Size = new System.Drawing.Size(37, 18);
             this.llab.TabIndex = 2;
@@ -181,7 +181,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 209);
+            this.label5.Location = new System.Drawing.Point(9, 208);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(161, 18);
@@ -201,7 +201,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 285);
+            this.label7.Location = new System.Drawing.Point(9, 286);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(235, 18);
@@ -213,7 +213,7 @@
             this.chkMatDungDD.AutoSize = true;
             this.chkMatDungDD.Checked = true;
             this.chkMatDungDD.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkMatDungDD.Location = new System.Drawing.Point(12, 321);
+            this.chkMatDungDD.Location = new System.Drawing.Point(12, 314);
             this.chkMatDungDD.Name = "chkMatDungDD";
             this.chkMatDungDD.Size = new System.Drawing.Size(249, 22);
             this.chkMatDungDD.TabIndex = 3;
@@ -241,7 +241,7 @@
             this.cbxCapDeo.Items.AddRange(new object[] {
             "DCM",
             "DCH"});
-            this.cbxCapDeo.Location = new System.Drawing.Point(286, 207);
+            this.cbxCapDeo.Location = new System.Drawing.Point(286, 205);
             this.cbxCapDeo.Margin = new System.Windows.Forms.Padding(4);
             this.cbxCapDeo.Name = "cbxCapDeo";
             this.cbxCapDeo.Size = new System.Drawing.Size(87, 26);
@@ -266,7 +266,7 @@
             // 
             // txtPhaHoaiKw
             // 
-            this.txtPhaHoaiKw.Location = new System.Drawing.Point(285, 279);
+            this.txtPhaHoaiKw.Location = new System.Drawing.Point(285, 283);
             this.txtPhaHoaiKw.Name = "txtPhaHoaiKw";
             this.txtPhaHoaiKw.Size = new System.Drawing.Size(87, 24);
             this.txtPhaHoaiKw.TabIndex = 4;
@@ -338,7 +338,7 @@
             this.groupBox1.Controls.Add(this.radPPU);
             this.groupBox1.Location = new System.Drawing.Point(394, 20);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(536, 116);
+            this.groupBox1.Size = new System.Drawing.Size(536, 110);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Phương pháp tính toán";
@@ -353,13 +353,13 @@
             this.panel1.Controls.Add(this.cbxPhuong);
             this.panel1.Location = new System.Drawing.Point(346, 11);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(187, 100);
+            this.panel1.Size = new System.Drawing.Size(187, 99);
             this.panel1.TabIndex = 11;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(4, 73);
+            this.label11.Location = new System.Drawing.Point(4, 72);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(76, 18);
@@ -378,7 +378,7 @@
             // 
             // txtChuKy
             // 
-            this.txtChuKy.Location = new System.Drawing.Point(92, 70);
+            this.txtChuKy.Location = new System.Drawing.Point(92, 69);
             this.txtChuKy.Name = "txtChuKy";
             this.txtChuKy.Size = new System.Drawing.Size(88, 24);
             this.txtChuKy.TabIndex = 10;
