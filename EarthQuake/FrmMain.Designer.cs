@@ -94,7 +94,7 @@
             // cbxTinh
             // 
             this.cbxTinh.FormattingEnabled = true;
-            this.cbxTinh.Location = new System.Drawing.Point(192, 30);
+            this.cbxTinh.Location = new System.Drawing.Point(192, 39);
             this.cbxTinh.Margin = new System.Windows.Forms.Padding(4);
             this.cbxTinh.Name = "cbxTinh";
             this.cbxTinh.Size = new System.Drawing.Size(180, 26);
@@ -104,7 +104,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 32);
+            this.label1.Location = new System.Drawing.Point(9, 41);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 18);
@@ -114,7 +114,7 @@
             // cbxHuyen
             // 
             this.cbxHuyen.FormattingEnabled = true;
-            this.cbxHuyen.Location = new System.Drawing.Point(192, 70);
+            this.cbxHuyen.Location = new System.Drawing.Point(192, 79);
             this.cbxHuyen.Margin = new System.Windows.Forms.Padding(4);
             this.cbxHuyen.Name = "cbxHuyen";
             this.cbxHuyen.Size = new System.Drawing.Size(180, 26);
@@ -124,7 +124,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 71);
+            this.label2.Location = new System.Drawing.Point(13, 80);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 18);
@@ -140,17 +140,17 @@
             "C",
             "D",
             "E"});
-            this.cbxNenDat.Location = new System.Drawing.Point(295, 105);
+            this.cbxNenDat.Location = new System.Drawing.Point(285, 116);
             this.cbxNenDat.Margin = new System.Windows.Forms.Padding(4);
             this.cbxNenDat.Name = "cbxNenDat";
-            this.cbxNenDat.Size = new System.Drawing.Size(77, 26);
+            this.cbxNenDat.Size = new System.Drawing.Size(87, 26);
             this.cbxNenDat.TabIndex = 0;
             this.cbxNenDat.SelectedIndexChanged += new System.EventHandler(this.cbxNenDat_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 105);
+            this.label3.Location = new System.Drawing.Point(9, 119);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 18);
@@ -160,7 +160,7 @@
             // llab
             // 
             this.llab.AutoSize = true;
-            this.llab.Location = new System.Drawing.Point(137, 104);
+            this.llab.Location = new System.Drawing.Point(137, 118);
             this.llab.Name = "llab";
             this.llab.Size = new System.Drawing.Size(37, 18);
             this.llab.TabIndex = 2;
@@ -181,7 +181,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 210);
+            this.label5.Location = new System.Drawing.Point(9, 209);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(161, 18);
@@ -228,10 +228,10 @@
             "0.75",
             "1",
             "1.25"});
-            this.cbxHsQuanTrong.Location = new System.Drawing.Point(296, 163);
+            this.cbxHsQuanTrong.Location = new System.Drawing.Point(286, 163);
             this.cbxHsQuanTrong.Margin = new System.Windows.Forms.Padding(4);
             this.cbxHsQuanTrong.Name = "cbxHsQuanTrong";
-            this.cbxHsQuanTrong.Size = new System.Drawing.Size(77, 26);
+            this.cbxHsQuanTrong.Size = new System.Drawing.Size(87, 26);
             this.cbxHsQuanTrong.TabIndex = 0;
             this.cbxHsQuanTrong.SelectedIndexChanged += new System.EventHandler(this.cbxHsQuanTrong_SelectedIndexChanged);
             // 
@@ -241,10 +241,10 @@
             this.cbxCapDeo.Items.AddRange(new object[] {
             "DCM",
             "DCH"});
-            this.cbxCapDeo.Location = new System.Drawing.Point(296, 207);
+            this.cbxCapDeo.Location = new System.Drawing.Point(286, 207);
             this.cbxCapDeo.Margin = new System.Windows.Forms.Padding(4);
             this.cbxCapDeo.Name = "cbxCapDeo";
-            this.cbxCapDeo.Size = new System.Drawing.Size(77, 26);
+            this.cbxCapDeo.Size = new System.Drawing.Size(87, 26);
             this.cbxCapDeo.TabIndex = 0;
             this.cbxCapDeo.SelectedIndexChanged += new System.EventHandler(this.cbxCapDeo_SelectedIndexChanged);
             // 
@@ -266,9 +266,9 @@
             // 
             // txtPhaHoaiKw
             // 
-            this.txtPhaHoaiKw.Location = new System.Drawing.Point(283, 279);
+            this.txtPhaHoaiKw.Location = new System.Drawing.Point(285, 279);
             this.txtPhaHoaiKw.Name = "txtPhaHoaiKw";
-            this.txtPhaHoaiKw.Size = new System.Drawing.Size(89, 24);
+            this.txtPhaHoaiKw.Size = new System.Drawing.Size(87, 24);
             this.txtPhaHoaiKw.TabIndex = 4;
             this.txtPhaHoaiKw.Text = "1";
             this.txtPhaHoaiKw.TextChanged += new System.EventHandler(this.txtPhaHoaiKw_TextChanged);
@@ -281,7 +281,7 @@
             this.dgvThongSo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.thongSo,
             this.giaTri});
-            this.dgvThongSo.Location = new System.Drawing.Point(12, 360);
+            this.dgvThongSo.Location = new System.Drawing.Point(12, 350);
             this.dgvThongSo.Name = "dgvThongSo";
             this.dgvThongSo.ReadOnly = true;
             this.dgvThongSo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -297,7 +297,7 @@
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             this.dgvThongSo.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvThongSo.Size = new System.Drawing.Size(359, 252);
+            this.dgvThongSo.Size = new System.Drawing.Size(359, 249);
             this.dgvThongSo.TabIndex = 5;
             // 
             // thongSo
@@ -338,7 +338,7 @@
             this.groupBox1.Controls.Add(this.radPPU);
             this.groupBox1.Location = new System.Drawing.Point(394, 20);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(536, 118);
+            this.groupBox1.Size = new System.Drawing.Size(536, 116);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Phương pháp tính toán";
@@ -351,7 +351,7 @@
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.cbxDangDD);
             this.panel1.Controls.Add(this.cbxPhuong);
-            this.panel1.Location = new System.Drawing.Point(341, 12);
+            this.panel1.Location = new System.Drawing.Point(346, 11);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(187, 100);
             this.panel1.TabIndex = 11;
@@ -432,7 +432,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(936, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(941, 25);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -573,13 +573,16 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.dgvKQ);
             this.groupBox2.Location = new System.Drawing.Point(394, 131);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(542, 481);
+            this.groupBox2.Size = new System.Drawing.Size(536, 468);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Kết Quả";
+            this.groupBox2.Text = "Kết Quả Tính Toán";
             // 
             // dgvKQ
             // 
@@ -587,14 +590,14 @@
             this.dgvKQ.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvKQ.Location = new System.Drawing.Point(3, 20);
             this.dgvKQ.Name = "dgvKQ";
-            this.dgvKQ.Size = new System.Drawing.Size(536, 458);
+            this.dgvKQ.Size = new System.Drawing.Size(530, 445);
             this.dgvKQ.TabIndex = 12;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(936, 614);
+            this.ClientSize = new System.Drawing.Size(941, 611);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvThongSo);

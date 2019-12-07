@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPPUDD = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.T = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,7 +75,7 @@
             this.KLHuuHieuY,
             this.phuongX,
             this.phuongY});
-            this.dgvPPUDD.Location = new System.Drawing.Point(4, 4);
+            this.dgvPPUDD.Location = new System.Drawing.Point(6, 4);
             this.dgvPPUDD.Margin = new System.Windows.Forms.Padding(4);
             this.dgvPPUDD.Name = "dgvPPUDD";
             this.dgvPPUDD.Size = new System.Drawing.Size(590, 353);
@@ -90,9 +90,9 @@
             // 
             // T
             // 
-            dataGridViewCellStyle1.Format = "N3";
-            dataGridViewCellStyle1.NullValue = null;
-            this.T.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Format = "N3";
+            dataGridViewCellStyle13.NullValue = null;
+            this.T.DefaultCellStyle = dataGridViewCellStyle13;
             this.T.HeaderText = "T (s)";
             this.T.Name = "T";
             this.T.ReadOnly = true;
@@ -100,9 +100,9 @@
             // 
             // f
             // 
-            dataGridViewCellStyle2.Format = "N3";
-            dataGridViewCellStyle2.NullValue = null;
-            this.f.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Format = "N3";
+            dataGridViewCellStyle14.NullValue = null;
+            this.f.DefaultCellStyle = dataGridViewCellStyle14;
             this.f.HeaderText = "f (Hz)";
             this.f.Name = "f";
             this.f.ReadOnly = true;
@@ -110,9 +110,9 @@
             // 
             // massX
             // 
-            dataGridViewCellStyle3.Format = "N3";
-            dataGridViewCellStyle3.NullValue = null;
-            this.massX.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Format = "N3";
+            dataGridViewCellStyle15.NullValue = null;
+            this.massX.DefaultCellStyle = dataGridViewCellStyle15;
             this.massX.HeaderText = "Mass X";
             this.massX.Name = "massX";
             this.massX.ReadOnly = true;
@@ -127,9 +127,9 @@
             // 
             // KLHuuHieuX
             // 
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.KLHuuHieuX.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Format = "N2";
+            dataGridViewCellStyle16.NullValue = null;
+            this.KLHuuHieuX.DefaultCellStyle = dataGridViewCellStyle16;
             this.KLHuuHieuX.HeaderText = "KL Hữu Hiệu X\n (%)";
             this.KLHuuHieuX.Name = "KLHuuHieuX";
             this.KLHuuHieuX.ReadOnly = true;
@@ -137,9 +137,9 @@
             // 
             // massY
             // 
-            dataGridViewCellStyle5.Format = "N3";
-            dataGridViewCellStyle5.NullValue = null;
-            this.massY.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle17.Format = "N3";
+            dataGridViewCellStyle17.NullValue = null;
+            this.massY.DefaultCellStyle = dataGridViewCellStyle17;
             this.massY.HeaderText = "Mass Y";
             this.massY.Name = "massY";
             this.massY.ReadOnly = true;
@@ -154,9 +154,9 @@
             // 
             // KLHuuHieuY
             // 
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.KLHuuHieuY.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle18.Format = "N2";
+            dataGridViewCellStyle18.NullValue = null;
+            this.KLHuuHieuY.DefaultCellStyle = dataGridViewCellStyle18;
             this.KLHuuHieuY.HeaderText = "KL Hữu Hiệu Y \n(%)";
             this.KLHuuHieuY.Name = "KLHuuHieuY";
             this.KLHuuHieuY.ReadOnly = true;
@@ -180,6 +180,7 @@
             // 
             // btnOK
             // 
+            this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnOK.Location = new System.Drawing.Point(519, 378);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 24);
@@ -190,6 +191,9 @@
             // 
             // dgvData
             // 
+            this.dgvData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Location = new System.Drawing.Point(631, 3);
             this.dgvData.Margin = new System.Windows.Forms.Padding(4);
@@ -199,6 +203,7 @@
             // 
             // cbx
             // 
+            this.cbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbx.FormattingEnabled = true;
             this.cbx.Location = new System.Drawing.Point(363, 419);
             this.cbx.Name = "cbx";
@@ -208,6 +213,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "X",
@@ -233,6 +239,7 @@
             // 
             // btnClose
             // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnClose.Location = new System.Drawing.Point(519, 419);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(74, 24);
@@ -243,6 +250,7 @@
             // 
             // txtMinKLHH
             // 
+            this.txtMinKLHH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtMinKLHH.Location = new System.Drawing.Point(241, 377);
             this.txtMinKLHH.Name = "txtMinKLHH";
             this.txtMinKLHH.Size = new System.Drawing.Size(100, 22);
@@ -252,6 +260,7 @@
             // 
             // chkRemoveMinDDD
             // 
+            this.chkRemoveMinDDD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkRemoveMinDDD.AutoSize = true;
             this.chkRemoveMinDDD.Checked = true;
             this.chkRemoveMinDDD.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -280,6 +289,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(0, 503);
             this.Name = "frmPPUDaoDong";
             this.ShowIcon = false;
             this.Text = "Phổ phản ứng dạng dao dộng";
