@@ -63,8 +63,6 @@ namespace EarthQuake
                 double.TryParse(x1.ToString(), out listSPT[i,0]);
                     double.TryParse(x2.ToString(), out listSPT[i, 1]);
 
-              
-                
                 sumSPT+=x1*x2;
                 sumx1 += x1;
   
@@ -89,23 +87,7 @@ namespace EarthQuake
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSPT_KeyPress(object sender, KeyPressEventArgs e)
-        {
-        }
-
-        private void txtSPT_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSPT_TabIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+    
+     
     }
 }

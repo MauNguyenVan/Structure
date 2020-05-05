@@ -54,10 +54,7 @@
             this.txtSPT.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtSPT.Size = new System.Drawing.Size(207, 527);
             this.txtSPT.TabIndex = 1;
-            this.txtSPT.Text = "[Chieu day] [tab] [SPT]";
-            this.txtSPT.TabIndexChanged += new System.EventHandler(this.txtSPT_TabIndexChanged);
-            this.txtSPT.TextChanged += new System.EventHandler(this.txtSPT_TextChanged);
-            this.txtSPT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSPT_KeyPress);
+            this.txtSPT.Text = "[Chieu day] [tab] [SPT]\r\n[Chieu day] [tab] [SPT]";
             // 
             // btnOK
             // 

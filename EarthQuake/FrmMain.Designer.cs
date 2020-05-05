@@ -93,6 +93,7 @@
             // 
             // cbxTinh
             // 
+            this.cbxTinh.DropDownWidth = 200;
             this.cbxTinh.FormattingEnabled = true;
             this.cbxTinh.Location = new System.Drawing.Point(192, 39);
             this.cbxTinh.Margin = new System.Windows.Forms.Padding(4);
@@ -113,6 +114,7 @@
             // 
             // cbxHuyen
             // 
+            this.cbxHuyen.DropDownWidth = 200;
             this.cbxHuyen.FormattingEnabled = true;
             this.cbxHuyen.Location = new System.Drawing.Point(192, 79);
             this.cbxHuyen.Margin = new System.Windows.Forms.Padding(4);
@@ -250,6 +252,7 @@
             // 
             // cbxKetCau
             // 
+            this.cbxKetCau.DropDownWidth = 250;
             this.cbxKetCau.FormattingEnabled = true;
             this.cbxKetCau.Items.AddRange(new object[] {
             "Hệ khung, hoặc tương đương",
