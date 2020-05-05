@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPPUDD = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.T = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +64,8 @@
             // dgvPPUDD
             // 
             this.dgvPPUDD.AllowDrop = true;
+            this.dgvPPUDD.AllowUserToAddRows = false;
+            this.dgvPPUDD.AllowUserToDeleteRows = false;
             this.dgvPPUDD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPPUDD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -82,7 +84,6 @@
             this.dgvPPUDD.Name = "dgvPPUDD";
             this.dgvPPUDD.Size = new System.Drawing.Size(590, 353);
             this.dgvPPUDD.TabIndex = 0;
-            this.dgvPPUDD.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPPUDD_CellContentClick);
             // 
             // id
             // 
@@ -93,9 +94,9 @@
             // 
             // T
             // 
-            dataGridViewCellStyle1.Format = "N3";
-            dataGridViewCellStyle1.NullValue = null;
-            this.T.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Format = "N3";
+            dataGridViewCellStyle7.NullValue = null;
+            this.T.DefaultCellStyle = dataGridViewCellStyle7;
             this.T.HeaderText = "T (s)";
             this.T.Name = "T";
             this.T.ReadOnly = true;
@@ -103,9 +104,9 @@
             // 
             // f
             // 
-            dataGridViewCellStyle2.Format = "N3";
-            dataGridViewCellStyle2.NullValue = null;
-            this.f.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Format = "N3";
+            dataGridViewCellStyle8.NullValue = null;
+            this.f.DefaultCellStyle = dataGridViewCellStyle8;
             this.f.HeaderText = "f (Hz)";
             this.f.Name = "f";
             this.f.ReadOnly = true;
@@ -113,9 +114,9 @@
             // 
             // massX
             // 
-            dataGridViewCellStyle3.Format = "N3";
-            dataGridViewCellStyle3.NullValue = null;
-            this.massX.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Format = "N3";
+            dataGridViewCellStyle9.NullValue = null;
+            this.massX.DefaultCellStyle = dataGridViewCellStyle9;
             this.massX.HeaderText = "Mass X";
             this.massX.Name = "massX";
             this.massX.ReadOnly = true;
@@ -130,9 +131,9 @@
             // 
             // KLHuuHieuX
             // 
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.KLHuuHieuX.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Format = "N2";
+            dataGridViewCellStyle10.NullValue = null;
+            this.KLHuuHieuX.DefaultCellStyle = dataGridViewCellStyle10;
             this.KLHuuHieuX.HeaderText = "KL Hữu Hiệu X\n (%)";
             this.KLHuuHieuX.Name = "KLHuuHieuX";
             this.KLHuuHieuX.ReadOnly = true;
@@ -140,9 +141,9 @@
             // 
             // massY
             // 
-            dataGridViewCellStyle5.Format = "N3";
-            dataGridViewCellStyle5.NullValue = null;
-            this.massY.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Format = "N3";
+            dataGridViewCellStyle11.NullValue = null;
+            this.massY.DefaultCellStyle = dataGridViewCellStyle11;
             this.massY.HeaderText = "Mass Y";
             this.massY.Name = "massY";
             this.massY.ReadOnly = true;
@@ -157,9 +158,9 @@
             // 
             // KLHuuHieuY
             // 
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.KLHuuHieuY.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Format = "N2";
+            dataGridViewCellStyle12.NullValue = null;
+            this.KLHuuHieuY.DefaultCellStyle = dataGridViewCellStyle12;
             this.KLHuuHieuY.HeaderText = "KL Hữu Hiệu Y \n(%)";
             this.KLHuuHieuY.Name = "KLHuuHieuY";
             this.KLHuuHieuY.ReadOnly = true;
@@ -184,7 +185,7 @@
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnOK.Location = new System.Drawing.Point(521, 385);
+            this.btnOK.Location = new System.Drawing.Point(521, 383);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 24);
             this.btnOK.TabIndex = 1;
@@ -208,7 +209,7 @@
             // 
             this.cbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbx.FormattingEnabled = true;
-            this.cbx.Location = new System.Drawing.Point(318, 429);
+            this.cbx.Location = new System.Drawing.Point(318, 434);
             this.cbx.Name = "cbx";
             this.cbx.Size = new System.Drawing.Size(142, 24);
             this.cbx.TabIndex = 3;
@@ -221,7 +222,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "X",
             "Y"});
-            this.comboBox1.Location = new System.Drawing.Point(63, 426);
+            this.comboBox1.Location = new System.Drawing.Point(63, 434);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(159, 24);
             this.comboBox1.TabIndex = 4;
@@ -254,7 +255,7 @@
             // txtMinKLHH
             // 
             this.txtMinKLHH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtMinKLHH.Location = new System.Drawing.Point(360, 387);
+            this.txtMinKLHH.Location = new System.Drawing.Point(360, 385);
             this.txtMinKLHH.Name = "txtMinKLHH";
             this.txtMinKLHH.Size = new System.Drawing.Size(100, 22);
             this.txtMinKLHH.TabIndex = 7;
@@ -267,7 +268,7 @@
             this.chkRemoveMinDDD.AutoSize = true;
             this.chkRemoveMinDDD.Checked = true;
             this.chkRemoveMinDDD.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkRemoveMinDDD.Location = new System.Drawing.Point(6, 389);
+            this.chkRemoveMinDDD.Location = new System.Drawing.Point(6, 387);
             this.chkRemoveMinDDD.Name = "chkRemoveMinDDD";
             this.chkRemoveMinDDD.Size = new System.Drawing.Size(348, 20);
             this.chkRemoveMinDDD.TabIndex = 8;
@@ -279,7 +280,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 429);
+            this.label1.Location = new System.Drawing.Point(3, 437);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 16);
             this.label1.TabIndex = 9;
@@ -289,7 +290,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(266, 433);
+            this.label2.Location = new System.Drawing.Point(266, 438);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 16);
             this.label2.TabIndex = 9;
@@ -317,6 +318,7 @@
             this.MinimumSize = new System.Drawing.Size(16, 503);
             this.Name = "frmPPUDaoDong";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Phổ phản ứng dạng dao dộng";
             this.Load += new System.EventHandler(this.frmPPUDaoDong_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPPUDD)).EndInit();

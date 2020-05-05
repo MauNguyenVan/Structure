@@ -612,10 +612,6 @@ namespace EarthQuake
            
         }
 
-        private void dgvPPUDD_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            addlistMode();
-            // comboBox1_SelectedIndexChanged(sender, e);
-        }
+       
     }
 }
