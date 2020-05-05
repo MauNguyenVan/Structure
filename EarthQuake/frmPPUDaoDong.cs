@@ -53,7 +53,8 @@ namespace EarthQuake
             InitializeComponent();
             this.ShowInTaskbar = false;
             dgvData.Visible = false;
-           // cbxPhuong.Columns.Clear();
+            
+            // cbxPhuong.Columns.Clear();
 
             //cbxPhuong.Columns.Add("phuong", "Phuong");
             //cbxPhuong.Columns.Add("dangDD", "DangDD");
@@ -77,12 +78,9 @@ namespace EarthQuake
         public DataTable dt = new DataTable();
         private void frmPPUDaoDong_Load(object sender, EventArgs e)
         {
+           
             try
             {
-
-
-
-
 
                 dt.TableName = "dataPUDD";
                 dt.Columns.Add("phuong", typeof(char));
@@ -195,6 +193,7 @@ namespace EarthQuake
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            comboBox1.SelectedIndex = 0;//
             addlistMode();
      eventTable(dt, listModeXY);
           
@@ -605,7 +604,7 @@ namespace EarthQuake
         {
             if(txtMinKLHH.Text != "" )
             {
-                 comboBox1.Items.Clear(); //nhasp
+              //   comboBox1.Items.Clear(); //nhasp
              chkRemoveMinDDD_CheckedChanged(sender, e);
             }
           
