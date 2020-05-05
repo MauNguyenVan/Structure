@@ -135,6 +135,7 @@
             // 
             // cbxNenDat
             // 
+            this.cbxNenDat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxNenDat.FormattingEnabled = true;
             this.cbxNenDat.Items.AddRange(new object[] {
             "A",
@@ -142,7 +143,7 @@
             "C",
             "D",
             "E"});
-            this.cbxNenDat.Location = new System.Drawing.Point(285, 116);
+            this.cbxNenDat.Location = new System.Drawing.Point(284, 118);
             this.cbxNenDat.Margin = new System.Windows.Forms.Padding(4);
             this.cbxNenDat.Name = "cbxNenDat";
             this.cbxNenDat.Size = new System.Drawing.Size(87, 26);
@@ -162,7 +163,7 @@
             // llab
             // 
             this.llab.AutoSize = true;
-            this.llab.Location = new System.Drawing.Point(137, 120);
+            this.llab.Location = new System.Drawing.Point(133, 121);
             this.llab.Name = "llab";
             this.llab.Size = new System.Drawing.Size(37, 18);
             this.llab.TabIndex = 2;
@@ -173,7 +174,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 169);
+            this.label4.Location = new System.Drawing.Point(9, 165);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(210, 18);
@@ -183,7 +184,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 208);
+            this.label5.Location = new System.Drawing.Point(9, 204);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(161, 18);
@@ -193,7 +194,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 248);
+            this.label6.Location = new System.Drawing.Point(9, 244);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(123, 18);
@@ -203,7 +204,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 286);
+            this.label7.Location = new System.Drawing.Point(9, 282);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(235, 18);
@@ -215,7 +216,7 @@
             this.chkMatDungDD.AutoSize = true;
             this.chkMatDungDD.Checked = true;
             this.chkMatDungDD.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkMatDungDD.Location = new System.Drawing.Point(12, 314);
+            this.chkMatDungDD.Location = new System.Drawing.Point(12, 310);
             this.chkMatDungDD.Name = "chkMatDungDD";
             this.chkMatDungDD.Size = new System.Drawing.Size(249, 22);
             this.chkMatDungDD.TabIndex = 3;
@@ -230,7 +231,7 @@
             "0.75",
             "1",
             "1.25"});
-            this.cbxHsQuanTrong.Location = new System.Drawing.Point(286, 163);
+            this.cbxHsQuanTrong.Location = new System.Drawing.Point(286, 159);
             this.cbxHsQuanTrong.Margin = new System.Windows.Forms.Padding(4);
             this.cbxHsQuanTrong.Name = "cbxHsQuanTrong";
             this.cbxHsQuanTrong.Size = new System.Drawing.Size(87, 26);
@@ -239,11 +240,12 @@
             // 
             // cbxCapDeo
             // 
+            this.cbxCapDeo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCapDeo.FormattingEnabled = true;
             this.cbxCapDeo.Items.AddRange(new object[] {
             "DCM",
             "DCH"});
-            this.cbxCapDeo.Location = new System.Drawing.Point(286, 205);
+            this.cbxCapDeo.Location = new System.Drawing.Point(286, 201);
             this.cbxCapDeo.Margin = new System.Windows.Forms.Padding(4);
             this.cbxCapDeo.Name = "cbxCapDeo";
             this.cbxCapDeo.Size = new System.Drawing.Size(87, 26);
@@ -252,6 +254,7 @@
             // 
             // cbxKetCau
             // 
+            this.cbxKetCau.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxKetCau.DropDownWidth = 250;
             this.cbxKetCau.FormattingEnabled = true;
             this.cbxKetCau.Items.AddRange(new object[] {
@@ -260,7 +263,7 @@
             "Hệ tường không ghép",
             "Hệ dễ xoắn",
             "Hệ con lắc ngược"});
-            this.cbxKetCau.Location = new System.Drawing.Point(140, 245);
+            this.cbxKetCau.Location = new System.Drawing.Point(140, 241);
             this.cbxKetCau.Margin = new System.Windows.Forms.Padding(4);
             this.cbxKetCau.Name = "cbxKetCau";
             this.cbxKetCau.Size = new System.Drawing.Size(233, 26);
@@ -269,7 +272,7 @@
             // 
             // txtPhaHoaiKw
             // 
-            this.txtPhaHoaiKw.Location = new System.Drawing.Point(285, 283);
+            this.txtPhaHoaiKw.Location = new System.Drawing.Point(285, 279);
             this.txtPhaHoaiKw.Name = "txtPhaHoaiKw";
             this.txtPhaHoaiKw.Size = new System.Drawing.Size(87, 24);
             this.txtPhaHoaiKw.TabIndex = 4;
@@ -284,7 +287,7 @@
             this.dgvThongSo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.thongSo,
             this.giaTri});
-            this.dgvThongSo.Location = new System.Drawing.Point(12, 350);
+            this.dgvThongSo.Location = new System.Drawing.Point(12, 339);
             this.dgvThongSo.Name = "dgvThongSo";
             this.dgvThongSo.ReadOnly = true;
             this.dgvThongSo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -398,6 +401,7 @@
             // 
             // cbxDangDD
             // 
+            this.cbxDangDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDangDD.FormattingEnabled = true;
             this.cbxDangDD.Location = new System.Drawing.Point(92, 36);
             this.cbxDangDD.Name = "cbxDangDD";
@@ -407,6 +411,7 @@
             // 
             // cbxPhuong
             // 
+            this.cbxPhuong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxPhuong.FormattingEnabled = true;
             this.cbxPhuong.Location = new System.Drawing.Point(92, 4);
             this.cbxPhuong.Name = "cbxPhuong";
@@ -582,25 +587,28 @@
             this.groupBox2.Controls.Add(this.dgvKQ);
             this.groupBox2.Location = new System.Drawing.Point(394, 131);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(536, 468);
+            this.groupBox2.Size = new System.Drawing.Size(536, 460);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kết Quả Tính Toán";
             // 
             // dgvKQ
             // 
+            this.dgvKQ.AllowUserToAddRows = false;
+            this.dgvKQ.AllowUserToDeleteRows = false;
             this.dgvKQ.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKQ.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvKQ.Location = new System.Drawing.Point(3, 20);
             this.dgvKQ.Name = "dgvKQ";
-            this.dgvKQ.Size = new System.Drawing.Size(530, 445);
+            this.dgvKQ.ReadOnly = true;
+            this.dgvKQ.Size = new System.Drawing.Size(530, 437);
             this.dgvKQ.TabIndex = 12;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(941, 611);
+            this.ClientSize = new System.Drawing.Size(941, 603);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvThongSo);
