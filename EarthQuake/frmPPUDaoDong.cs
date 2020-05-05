@@ -333,8 +333,7 @@ namespace EarthQuake
                     {
                        
                         AuToCheck(massx, massy, j);
-                        comboBox1.Items.Add($"phuong ={ phuong};i={i};j={j};n={ n}\n " +
-                            $"KLHH={sds.ToList()[j].KLHuuHieu}-x={Convert.ToDouble(txtMinKLHH.Text)}");
+                       
 
 
                         n = n < sodangDD ? ++n : n;
@@ -492,7 +491,7 @@ namespace EarthQuake
             //  cbxPhuong.Rows.Clear();
             dgvData.Columns.Clear();
             char phuong = char.Parse(comboBox1.Text);
-            btnOK.Text = (cbx.SelectedIndex).ToString();
+           
           
             int mode = int.Parse(cbx.Text.Substring(4, cbx.Text.Length - 4));
             var sds = from f in dt.AsEnumerable()
@@ -519,8 +518,6 @@ namespace EarthQuake
             cbx.Items.Clear();
             for (int i = 0; i < dgvPPUDD.Rows.Count-1; i++)
             {
-               
-                   
                   modeXY.x= Convert.ToBoolean(dgvPPUDD["phuongX", i].Value);
                    modeXY.y= Convert.ToBoolean(dgvPPUDD["phuongY", i].Value);
                 modeXY.mode = Convert.ToUInt16( dgvPPUDD["id", i].Value.ToString());
@@ -613,6 +610,12 @@ namespace EarthQuake
             }
           
            
+        }
+
+        private void dgvPPUDD_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            addlistMode();
+            // comboBox1_SelectedIndexChanged(sender, e);
         }
     }
 }

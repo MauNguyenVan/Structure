@@ -122,21 +122,21 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="btnExit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>277, 64</value>
+    <value>298, 75</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnExit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
   <data name="btnExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 43</value>
+    <value>100, 30</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnExit.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="btnExit.Text" xml:space="preserve">
-    <value>Thoát</value>
+    <value>Close</value>
   </data>
   <data name="btnExit.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>TextAboveImage</value>
@@ -157,19 +157,19 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="btnOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>141, 64</value>
+    <value>150, 75</value>
   </data>
   <data name="btnOK.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
   <data name="btnOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 44</value>
+    <value>100, 30</value>
   </data>
   <data name="btnOK.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="btnOK.Text" xml:space="preserve">
-    <value>Hoàn Thành</value>
+    <value>OK</value>
   </data>
   <data name="btnOK.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>TextAboveImage</value>
@@ -226,13 +226,13 @@
     <value>NoControl</value>
   </data>
   <data name="btnBrowser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 64</value>
+    <value>5, 75</value>
   </data>
   <data name="btnBrowser.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
   <data name="btnBrowser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 43</value>
+    <value>100, 30</value>
   </data>
   <data name="btnBrowser.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
