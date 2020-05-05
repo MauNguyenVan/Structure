@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSPT));
             this.label1 = new System.Windows.Forms.Label();
             this.txtSPT = new System.Windows.Forms.TextBox();
             this.btnOK = new System.Windows.Forms.Button();
@@ -53,13 +54,14 @@
             this.txtSPT.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtSPT.Size = new System.Drawing.Size(207, 527);
             this.txtSPT.TabIndex = 1;
+            this.txtSPT.Text = "[Chieu day] [tab] [SPT]";
             this.txtSPT.TabIndexChanged += new System.EventHandler(this.txtSPT_TabIndexChanged);
             this.txtSPT.TextChanged += new System.EventHandler(this.txtSPT_TextChanged);
             this.txtSPT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSPT_KeyPress);
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(227, 31);
+            this.btnOK.Location = new System.Drawing.Point(236, 31);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(97, 37);
             this.btnOK.TabIndex = 2;
@@ -69,7 +71,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(227, 187);
+            this.btnCancel.Location = new System.Drawing.Point(236, 187);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(97, 37);
             this.btnCancel.TabIndex = 2;
@@ -87,9 +89,12 @@
             this.Controls.Add(this.txtSPT);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmSPT";
             this.Text = "EarthQuake - SPT";
             this.Load += new System.EventHandler(this.frmSPT_Load);

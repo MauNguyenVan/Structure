@@ -137,15 +137,12 @@ namespace EarthQuake
             dgvThongSo["giaTri", 8].Value = hsUngXuq.ToString();
             KlDongDat();
         }
+        frmSPT fSPT = new frmSPT();
         private void llab_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmSPT fSPT = new frmSPT();
-
             fSPT.eventSPT += FSPT_eventSPT;
-
             fSPT.ShowDialog();
         }
-
         private double FSPT_eventSPT(double spt)
         {
             llab.Text = "SPT = " + spt.ToString();
