@@ -253,7 +253,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(74, 24);
             this.btnClose.TabIndex = 6;
-            this.btnClose.Text = "Thoát";
+            this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
