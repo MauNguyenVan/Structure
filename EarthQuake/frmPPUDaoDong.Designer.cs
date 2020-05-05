@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPPUDaoDong));
             this.dgvPPUDD = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.T = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,9 +95,9 @@
             // 
             // T
             // 
-            dataGridViewCellStyle7.Format = "N3";
-            dataGridViewCellStyle7.NullValue = null;
-            this.T.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle13.Format = "N3";
+            dataGridViewCellStyle13.NullValue = null;
+            this.T.DefaultCellStyle = dataGridViewCellStyle13;
             this.T.HeaderText = "T (s)";
             this.T.Name = "T";
             this.T.ReadOnly = true;
@@ -104,9 +105,9 @@
             // 
             // f
             // 
-            dataGridViewCellStyle8.Format = "N3";
-            dataGridViewCellStyle8.NullValue = null;
-            this.f.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle14.Format = "N3";
+            dataGridViewCellStyle14.NullValue = null;
+            this.f.DefaultCellStyle = dataGridViewCellStyle14;
             this.f.HeaderText = "f (Hz)";
             this.f.Name = "f";
             this.f.ReadOnly = true;
@@ -114,9 +115,9 @@
             // 
             // massX
             // 
-            dataGridViewCellStyle9.Format = "N3";
-            dataGridViewCellStyle9.NullValue = null;
-            this.massX.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle15.Format = "N3";
+            dataGridViewCellStyle15.NullValue = null;
+            this.massX.DefaultCellStyle = dataGridViewCellStyle15;
             this.massX.HeaderText = "Mass X";
             this.massX.Name = "massX";
             this.massX.ReadOnly = true;
@@ -131,9 +132,9 @@
             // 
             // KLHuuHieuX
             // 
-            dataGridViewCellStyle10.Format = "N2";
-            dataGridViewCellStyle10.NullValue = null;
-            this.KLHuuHieuX.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle16.Format = "N2";
+            dataGridViewCellStyle16.NullValue = null;
+            this.KLHuuHieuX.DefaultCellStyle = dataGridViewCellStyle16;
             this.KLHuuHieuX.HeaderText = "KL Hữu Hiệu X\n (%)";
             this.KLHuuHieuX.Name = "KLHuuHieuX";
             this.KLHuuHieuX.ReadOnly = true;
@@ -141,9 +142,9 @@
             // 
             // massY
             // 
-            dataGridViewCellStyle11.Format = "N3";
-            dataGridViewCellStyle11.NullValue = null;
-            this.massY.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle17.Format = "N3";
+            dataGridViewCellStyle17.NullValue = null;
+            this.massY.DefaultCellStyle = dataGridViewCellStyle17;
             this.massY.HeaderText = "Mass Y";
             this.massY.Name = "massY";
             this.massY.ReadOnly = true;
@@ -158,9 +159,9 @@
             // 
             // KLHuuHieuY
             // 
-            dataGridViewCellStyle12.Format = "N2";
-            dataGridViewCellStyle12.NullValue = null;
-            this.KLHuuHieuY.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle18.Format = "N2";
+            dataGridViewCellStyle18.NullValue = null;
+            this.KLHuuHieuY.DefaultCellStyle = dataGridViewCellStyle18;
             this.KLHuuHieuY.HeaderText = "KL Hữu Hiệu Y \n(%)";
             this.KLHuuHieuY.Name = "KLHuuHieuY";
             this.KLHuuHieuY.ReadOnly = true;
@@ -313,11 +314,11 @@
             this.Controls.Add(this.dgvData);
             this.Controls.Add(this.dgvPPUDD);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(16, 503);
             this.Name = "frmPPUDaoDong";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Phổ phản ứng dạng dao dộng";
             this.Load += new System.EventHandler(this.frmPPUDaoDong_Load);
