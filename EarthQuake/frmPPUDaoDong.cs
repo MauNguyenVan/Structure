@@ -331,7 +331,7 @@ namespace EarthQuake
                     //ktra dk 
                     if (mass == sds.ToList()[j].massU && n <= sodangDD && sds.ToList()[j].KLHuuHieu>Convert.ToDouble(txtMinKLHH.Text))//KLHH>5%+
                     {
-                        this.Text = sds.ToList()[j].KLHuuHieu.ToString();
+                       
                         AuToCheck(massx, massy, j);
                         comboBox1.Items.Add($"phuong ={ phuong};i={i};j={j};n={ n}\n " +
                             $"KLHH={sds.ToList()[j].KLHuuHieu}-x={Convert.ToDouble(txtMinKLHH.Text)}");
