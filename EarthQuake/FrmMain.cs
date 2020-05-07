@@ -640,6 +640,7 @@ namespace EarthQuake
         private void dgvKQ_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             notSortDataGrid( dgvKQ);
+            
         }
 
         internal static void notSortDataGrid(DataGridView dgv)
@@ -648,6 +649,11 @@ namespace EarthQuake
             {
                 column.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Ngày phát hành: 10/2019\n\nTiêu chuẩn áp dụng TCVN 9386:2012\n\nVersion 0.9","About EarthQuake");
         }
     }
 }
