@@ -190,7 +190,7 @@ namespace EarthQuake
         }
 
 
-
+        
         private void btnOK_Click(object sender, EventArgs e)
         {
             comboBox1.SelectedIndex = 0;//
@@ -515,7 +515,7 @@ namespace EarthQuake
             // dataXY = new bool[tabl1.Rows.Count, 2];
            listModeXY.Clear();
             cbx.Items.Clear();
-            for (int i = 0; i < dgvPPUDD.Rows.Count-1; i++)
+            for (int i = 0; i < dgvPPUDD.Rows.Count; i++)
             {
                   modeXY.x= Convert.ToBoolean(dgvPPUDD["phuongX", i].Value);
                    modeXY.y= Convert.ToBoolean(dgvPPUDD["phuongY", i].Value);

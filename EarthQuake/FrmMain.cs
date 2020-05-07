@@ -629,9 +629,11 @@ namespace EarthQuake
                 this.Text = softWareName +"-[" +fileName +"]";
             }
         }
-       
-           
 
-      
+        private void unitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormUnit unitSetting = new FormUnit();
+            unitSetting.ShowDialog();
+        }
     }
 }

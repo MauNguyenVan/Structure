@@ -91,7 +91,6 @@
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "frmSPT";
             this.Text = "EarthQuake - SPT";
             this.Load += new System.EventHandler(this.frmSPT_Load);
