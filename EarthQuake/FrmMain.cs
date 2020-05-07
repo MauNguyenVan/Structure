@@ -337,7 +337,7 @@ namespace EarthQuake
 
             
             PPPhoPhanUng();
-
+            notSortDataGrid(dgvKQ);
 
 
         }
@@ -569,6 +569,7 @@ namespace EarthQuake
 
             dgvKQ.DataSource = sds.CopyToDataTable();
             HidenColumns();
+            notSortDataGrid(dgvKQ);
             txtChuKy.Text = ModeXY[mode-1].chuky.ToString("N4");
         }
 
@@ -594,7 +595,7 @@ namespace EarthQuake
             DataGridViewCellStyle fomatFj = new DataGridViewCellStyle();
             fomatFj.Format = "N4";
             dgvKQ.Columns["Fj"].DefaultCellStyle = fomatFj;
-
+               
 
 
 
@@ -634,6 +635,19 @@ namespace EarthQuake
         {
             FormUnit unitSetting = new FormUnit();
             unitSetting.ShowDialog();
+        }
+
+        private void dgvKQ_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            notSortDataGrid( dgvKQ);
+        }
+
+        internal static void notSortDataGrid(DataGridView dgv)
+        {
+            foreach (DataGridViewColumn column in dgv.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
         }
     }
 }

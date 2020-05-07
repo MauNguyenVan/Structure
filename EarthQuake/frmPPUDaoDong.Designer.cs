@@ -36,6 +36,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPPUDaoDong));
             this.dgvPPUDD = new System.Windows.Forms.DataGridView();
+            this.btnOK = new System.Windows.Forms.Button();
+            this.dgvData = new System.Windows.Forms.DataGridView();
+            this.cbx = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.picView = new System.Windows.Forms.PictureBox();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.txtMinKLHH = new System.Windows.Forms.TextBox();
+            this.chkRemoveMinDDD = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.T = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.f = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,16 +57,6 @@
             this.KLHuuHieuY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phuongX = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.phuongY = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.btnOK = new System.Windows.Forms.Button();
-            this.dgvData = new System.Windows.Forms.DataGridView();
-            this.cbx = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.picView = new System.Windows.Forms.PictureBox();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.txtMinKLHH = new System.Windows.Forms.TextBox();
-            this.chkRemoveMinDDD = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPPUDD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picView)).BeginInit();
@@ -86,103 +86,6 @@
             this.dgvPPUDD.Size = new System.Drawing.Size(590, 353);
             this.dgvPPUDD.TabIndex = 0;
             // 
-            // id
-            // 
-            this.id.HeaderText = "ID Mode";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 50;
-            // 
-            // T
-            // 
-            dataGridViewCellStyle1.Format = "N3";
-            dataGridViewCellStyle1.NullValue = null;
-            this.T.DefaultCellStyle = dataGridViewCellStyle1;
-            this.T.HeaderText = "T (s)";
-            this.T.Name = "T";
-            this.T.ReadOnly = true;
-            this.T.Width = 60;
-            // 
-            // f
-            // 
-            dataGridViewCellStyle2.Format = "N3";
-            dataGridViewCellStyle2.NullValue = null;
-            this.f.DefaultCellStyle = dataGridViewCellStyle2;
-            this.f.HeaderText = "f (Hz)";
-            this.f.Name = "f";
-            this.f.ReadOnly = true;
-            this.f.Width = 50;
-            // 
-            // massX
-            // 
-            dataGridViewCellStyle3.Format = "N3";
-            dataGridViewCellStyle3.NullValue = null;
-            this.massX.DefaultCellStyle = dataGridViewCellStyle3;
-            this.massX.HeaderText = "Mass X";
-            this.massX.Name = "massX";
-            this.massX.ReadOnly = true;
-            this.massX.Width = 50;
-            // 
-            // dangDDX
-            // 
-            this.dangDDX.HeaderText = "Dạng DD X";
-            this.dangDDX.Name = "dangDDX";
-            this.dangDDX.ReadOnly = true;
-            this.dangDDX.Width = 40;
-            // 
-            // KLHuuHieuX
-            // 
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.KLHuuHieuX.DefaultCellStyle = dataGridViewCellStyle4;
-            this.KLHuuHieuX.HeaderText = "KL Hữu Hiệu X\n (%)";
-            this.KLHuuHieuX.Name = "KLHuuHieuX";
-            this.KLHuuHieuX.ReadOnly = true;
-            this.KLHuuHieuX.Width = 50;
-            // 
-            // massY
-            // 
-            dataGridViewCellStyle5.Format = "N3";
-            dataGridViewCellStyle5.NullValue = null;
-            this.massY.DefaultCellStyle = dataGridViewCellStyle5;
-            this.massY.HeaderText = "Mass Y";
-            this.massY.Name = "massY";
-            this.massY.ReadOnly = true;
-            this.massY.Width = 50;
-            // 
-            // dangDDY
-            // 
-            this.dangDDY.HeaderText = "Dạng DD Y";
-            this.dangDDY.Name = "dangDDY";
-            this.dangDDY.ReadOnly = true;
-            this.dangDDY.Width = 40;
-            // 
-            // KLHuuHieuY
-            // 
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.KLHuuHieuY.DefaultCellStyle = dataGridViewCellStyle6;
-            this.KLHuuHieuY.HeaderText = "KL Hữu Hiệu Y \n(%)";
-            this.KLHuuHieuY.Name = "KLHuuHieuY";
-            this.KLHuuHieuY.ReadOnly = true;
-            this.KLHuuHieuY.Width = 50;
-            // 
-            // phuongX
-            // 
-            this.phuongX.HeaderText = "Phương X";
-            this.phuongX.Name = "phuongX";
-            this.phuongX.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.phuongX.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.phuongX.Width = 45;
-            // 
-            // phuongY
-            // 
-            this.phuongY.HeaderText = "Phương Y";
-            this.phuongY.Name = "phuongY";
-            this.phuongY.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.phuongY.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.phuongY.Width = 45;
-            // 
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -206,8 +109,10 @@
             this.dgvData.Margin = new System.Windows.Forms.Padding(4);
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
+            this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvData.Size = new System.Drawing.Size(607, 450);
             this.dgvData.TabIndex = 0;
+            this.dgvData.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvData_ColumnHeaderMouseClick);
             // 
             // cbx
             // 
@@ -301,6 +206,110 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Mode";
             // 
+            // id
+            // 
+            this.id.HeaderText = "ID Mode";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.id.Width = 50;
+            // 
+            // T
+            // 
+            dataGridViewCellStyle1.Format = "N3";
+            dataGridViewCellStyle1.NullValue = null;
+            this.T.DefaultCellStyle = dataGridViewCellStyle1;
+            this.T.HeaderText = "T (s)";
+            this.T.Name = "T";
+            this.T.ReadOnly = true;
+            this.T.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.T.Width = 60;
+            // 
+            // f
+            // 
+            dataGridViewCellStyle2.Format = "N3";
+            dataGridViewCellStyle2.NullValue = null;
+            this.f.DefaultCellStyle = dataGridViewCellStyle2;
+            this.f.HeaderText = "f (Hz)";
+            this.f.Name = "f";
+            this.f.ReadOnly = true;
+            this.f.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.f.Width = 50;
+            // 
+            // massX
+            // 
+            dataGridViewCellStyle3.Format = "N3";
+            dataGridViewCellStyle3.NullValue = null;
+            this.massX.DefaultCellStyle = dataGridViewCellStyle3;
+            this.massX.HeaderText = "Mass X";
+            this.massX.Name = "massX";
+            this.massX.ReadOnly = true;
+            this.massX.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.massX.Width = 50;
+            // 
+            // dangDDX
+            // 
+            this.dangDDX.HeaderText = "Dạng DD X";
+            this.dangDDX.Name = "dangDDX";
+            this.dangDDX.ReadOnly = true;
+            this.dangDDX.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dangDDX.Width = 40;
+            // 
+            // KLHuuHieuX
+            // 
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.KLHuuHieuX.DefaultCellStyle = dataGridViewCellStyle4;
+            this.KLHuuHieuX.HeaderText = "KL Hữu Hiệu X\n (%)";
+            this.KLHuuHieuX.Name = "KLHuuHieuX";
+            this.KLHuuHieuX.ReadOnly = true;
+            this.KLHuuHieuX.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.KLHuuHieuX.Width = 50;
+            // 
+            // massY
+            // 
+            dataGridViewCellStyle5.Format = "N3";
+            dataGridViewCellStyle5.NullValue = null;
+            this.massY.DefaultCellStyle = dataGridViewCellStyle5;
+            this.massY.HeaderText = "Mass Y";
+            this.massY.Name = "massY";
+            this.massY.ReadOnly = true;
+            this.massY.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.massY.Width = 50;
+            // 
+            // dangDDY
+            // 
+            this.dangDDY.HeaderText = "Dạng DD Y";
+            this.dangDDY.Name = "dangDDY";
+            this.dangDDY.ReadOnly = true;
+            this.dangDDY.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dangDDY.Width = 40;
+            // 
+            // KLHuuHieuY
+            // 
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.KLHuuHieuY.DefaultCellStyle = dataGridViewCellStyle6;
+            this.KLHuuHieuY.HeaderText = "KL Hữu Hiệu Y \n(%)";
+            this.KLHuuHieuY.Name = "KLHuuHieuY";
+            this.KLHuuHieuY.ReadOnly = true;
+            this.KLHuuHieuY.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.KLHuuHieuY.Width = 50;
+            // 
+            // phuongX
+            // 
+            this.phuongX.HeaderText = "Phương X";
+            this.phuongX.Name = "phuongX";
+            this.phuongX.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.phuongX.Width = 45;
+            // 
+            // phuongY
+            // 
+            this.phuongY.HeaderText = "Phương Y";
+            this.phuongY.Name = "phuongY";
+            this.phuongY.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.phuongY.Width = 45;
+            // 
             // frmPPUDaoDong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -342,6 +351,11 @@
         private System.Windows.Forms.ComboBox cbx;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.PictureBox picView;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.TextBox txtMinKLHH;
+        private System.Windows.Forms.CheckBox chkRemoveMinDDD;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn T;
         private System.Windows.Forms.DataGridViewTextBoxColumn f;
@@ -353,10 +367,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn KLHuuHieuY;
         private System.Windows.Forms.DataGridViewCheckBoxColumn phuongX;
         private System.Windows.Forms.DataGridViewCheckBoxColumn phuongY;
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.TextBox txtMinKLHH;
-        private System.Windows.Forms.CheckBox chkRemoveMinDDD;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
     }
 }

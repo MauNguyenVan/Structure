@@ -304,6 +304,7 @@
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             this.dgvThongSo.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvThongSo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvThongSo.Size = new System.Drawing.Size(359, 249);
             this.dgvThongSo.TabIndex = 5;
             // 
@@ -543,7 +544,7 @@
             // runToolStripMenuItem
             // 
             this.runToolStripMenuItem.Name = "runToolStripMenuItem";
-            this.runToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.runToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.runToolStripMenuItem.Text = "&Run";
             this.runToolStripMenuItem.Click += new System.EventHandler(this.runToolStripMenuItem_Click);
             // 
@@ -616,6 +617,7 @@
             this.dgvKQ.ReadOnly = true;
             this.dgvKQ.Size = new System.Drawing.Size(530, 437);
             this.dgvKQ.TabIndex = 12;
+            this.dgvKQ.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvKQ_ColumnHeaderMouseClick);
             // 
             // frmMain
             // 

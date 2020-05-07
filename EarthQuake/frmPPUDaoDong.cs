@@ -108,6 +108,7 @@ namespace EarthQuake
                 GetDangDD('Y');
                 dgvData.DataSource = dt;
 
+
             }
              catch (Exception)
             {
@@ -116,6 +117,7 @@ namespace EarthQuake
                  this.Dispose();
             }
             this.Width = picView.Location.X+ picView.Width + 20;
+            frmMain.notSortDataGrid(dgvData); ;
         }
        
         public void LayHeSo(double s, double tb, double tc, double td, double giatocnenTk, double hesoungXuq)
@@ -611,6 +613,10 @@ namespace EarthQuake
            
         }
 
-       
+        private void dgvData_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+           frmMain. notSortDataGrid(dgvData);
+        }
+        
     }
 }
