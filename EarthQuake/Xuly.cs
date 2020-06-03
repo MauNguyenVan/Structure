@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Data;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 
 namespace EarthQuake
@@ -312,4 +315,28 @@ namespace EarthQuake
         }
 
     }
+
+    internal static class Files
+    {
+    internal static void writeFile(string path, object data)
+        {
+                FileStream fs = new FileStream(path, FileMode.Create);
+                BinaryFormatter bf = new BinaryFormatter();
+                bf.Serialize(fs, data);
+                fs.Close();
+            System.Windows.Forms.MessageBox.Show("Saved File");
+        }
+        internal static object readFile(string path)
+        {
+            
+            FileStream fs = new FileStream(path, FileMode.Open);
+            BinaryFormatter bf = new BinaryFormatter();
+           Object data  = bf.Deserialize(fs);
+
+            fs.Close();
+            return data;
+        }
+    }
+   
+
 }

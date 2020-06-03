@@ -28,7 +28,9 @@ namespace EarthQuake
             if (txtSPT.Text != "")
             {
 
-                eventSPT(getSPT());
+              eventSPT(getSPT());
+              
+               // DialogResult = DialogResult.OK;
                 this.Hide();
             }
 

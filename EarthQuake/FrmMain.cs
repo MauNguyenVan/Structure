@@ -9,12 +9,15 @@ using System.Linq;
 using System.IO;
 using System.Diagnostics;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters;
+using System.Runtime.Serialization.Formatters.Binary;
+
 namespace EarthQuake
 {
-
+   
     public partial class frmMain : System.Windows.Forms.Form
     {
-
+        DataEarthQuake dataEQ = new DataEarthQuake();
         private string softWareName = "EarthQuake - Phần mềm tính toán động đất";
         DataTable tablePPPhoPhanUng = new DataTable();
         Xuly.NenDatA nenDatA = new Xuly.NenDatA();
@@ -143,8 +146,9 @@ namespace EarthQuake
             fSPT.eventSPT += FSPT_eventSPT;
             fSPT.ShowDialog();
         }
-        private double FSPT_eventSPT(double spt)
+        internal double FSPT_eventSPT(double spt)
         {
+
             llab.Text = "SPT = " + spt.ToString();
             selectNenDat(spt);
             return spt;
@@ -335,7 +339,7 @@ namespace EarthQuake
         {
 
 
-            
+
             PPPhoPhanUng();
             notSortDataGrid(dgvKQ);
 
@@ -366,7 +370,7 @@ namespace EarthQuake
 
             }
             // dgvKQ.Columns.Clear();
-            
+
             dgvKQ.DataSource = tablePPPhoPhanUng;
         }
 
@@ -396,14 +400,16 @@ namespace EarthQuake
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
             data.Clear();
             tablePPPhoPhanUng.Clear();
             ModeXY.Clear();
             dgvKQ.DataSource = null;
+
             // dgvKQ.Refresh();
             cbxPhuong.Items.Clear();
             cbxDangDD.Items.Clear();
+            txtChuKy.ResetText();
             fileName = null;
             this.Text = softWareName;
 
@@ -438,7 +444,7 @@ namespace EarthQuake
 
         private void fillcbxMode(DataTable table)
         {
-           
+
             cbxDangDD.Items.Clear();
             for (int i = 0; i < ModeXY.Count; i++)
             {
@@ -456,25 +462,34 @@ namespace EarthQuake
                 }
 
             }
-            cbxDangDD.SelectedIndex = 0;
+            try
+            {
+                cbxDangDD.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+
+              //  throw;
+            }
+          
 
             //cbxMode_SelectedIndexChanged( sender, e);
         }
 
-        DataTable data = new DataTable();
+        internal DataTable data { get; set; } = new DataTable();
         //DataTable dataTable1 = new DataTable();
         //DataTable dataTable2 = new DataTable();
         //DataTable dataTable3 = new DataTable();
         List<ModeXY> ModeXY = new List<ModeXY>();
-       
+
         private void FPPUDD_eventTable(DataTable table, List<ModeXY> listModeXY)
         {
             dgvKQ.Columns.Clear();
-            ModeXY = listModeXY;
-            data = table;
+            dataEQ.dataModeXY= ModeXY = listModeXY;
+            dataEQ.dataTable =data = table;
 
             cbxPhuong.Items.Clear();
-       
+
             cbxPhuong.Items.Add('X');
             cbxPhuong.Items.Add('Y');
 
@@ -483,9 +498,11 @@ namespace EarthQuake
             //  cbxPhuong_SelectedIndexChanged( sender, e);
 
             //cbxPhuong.SelectedIndex = cbxPhuong.SelectedIndex == 0 ? 1 : 0;
-            cbxPhuong. ResetText();
-           cbxDangDD.ResetText();
+            cbxPhuong.ResetText();
+            cbxDangDD.ResetText();
             txtChuKy.ResetText();
+           
+           
         }
 
 
@@ -510,7 +527,7 @@ namespace EarthQuake
                 save.Filter = "All files *.txt| *.txt";
                 if (save.ShowDialog() == DialogResult.OK)
                 {
-              
+
                     FileStream fileStream = new FileStream(save.FileName, FileMode.Create, FileAccess.Write);
                     StreamWriter streamWriter = new StreamWriter(fileStream);
                     int i = 0;
@@ -570,7 +587,7 @@ namespace EarthQuake
             dgvKQ.DataSource = sds.CopyToDataTable();
             HidenColumns();
             notSortDataGrid(dgvKQ);
-            txtChuKy.Text = ModeXY[mode-1].chuky.ToString("N4");
+            txtChuKy.Text = ModeXY[mode - 1].chuky.ToString("N4");
         }
 
         private void HidenColumns()
@@ -595,7 +612,7 @@ namespace EarthQuake
             DataGridViewCellStyle fomatFj = new DataGridViewCellStyle();
             fomatFj.Format = "N4";
             dgvKQ.Columns["Fj"].DefaultCellStyle = fomatFj;
-               
+
 
 
 
@@ -622,12 +639,52 @@ namespace EarthQuake
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          SaveFileDialog save = new SaveFileDialog();
-            save.Filter = "All file(*.eql)|*.eql";
-            if (save.ShowDialog() == DialogResult.OK)
+            if (File.Exists(fileName))
             {
-                fileName = save.FileName;
-                this.Text = softWareName +"-[" +fileName +"]";
+                Files.writeFile(fileName, dataEQ);
+            }
+            else
+            {
+                SaveFileDialog save = new SaveFileDialog();
+                save.Filter = "All file(*.eql)|*.eql";
+                if (save.ShowDialog() == DialogResult.OK)
+                {
+                    fileName = save.FileName;
+                    Files.writeFile(fileName, dataEQ);
+
+                    this.Text = softWareName + "-[" + fileName + "]";
+                }
+            }
+           
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "All file(*.eql)|*.eql";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                fileName = open.FileName;
+               
+                if (File.Exists(fileName))
+                {
+                    this.Text = softWareName + "-[" + fileName + "]";
+                
+                   DataEarthQuake eq = Files.readFile(fileName) as DataEarthQuake;
+                    panel1.Visible = true;
+                    ModeXY = eq.dataModeXY;
+                   data = eq.dataTable;
+               dgvKQ.DataSource = eq.dataTable;
+                    //  cbxPhuong.DataSource 
+                    cbxPhuong.Items.Clear();
+                    cbxPhuong.Items.Add('X');
+                    cbxPhuong.Items.Add('Y');
+                    
+                    fillcbxMode(eq.dataTable);
+
+
+
+                }
             }
         }
 
@@ -639,8 +696,8 @@ namespace EarthQuake
 
         private void dgvKQ_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            notSortDataGrid( dgvKQ);
-            
+            notSortDataGrid(dgvKQ);
+
         }
 
         internal static void notSortDataGrid(DataGridView dgv)
@@ -653,7 +710,19 @@ namespace EarthQuake
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Ngày phát hành: 10/2019\n\nTiêu chuẩn áp dụng TCVN 9386:2012\n\nVersion 0.9","About EarthQuake");
+            MessageBox.Show("Ngày phát hành: 10/2019\n\nTiêu chuẩn áp dụng TCVN 9386:2012\n\nVersion 0.9", "About EarthQuake");
         }
+    }
+
+
+}
+namespace EarthQuake
+{
+
+    [Serializable]
+    internal class DataEarthQuake
+    {
+        internal DataTable dataTable { get; set; } = new DataTable();
+        internal List<ModeXY> dataModeXY { get; set; } = new List<ModeXY>();
     }
 }

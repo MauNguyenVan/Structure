@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace EarthQuake
 {
+    [Serializable]
   public  struct ModeXY
     {
         public int mode;
@@ -508,8 +509,12 @@ namespace EarthQuake
         //DataTable x = new DataTable();
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+         
             addlistMode();
             cbx_SelectedIndexChanged(sender, e);
+            //show dgvData
+            dgvData.Visible = true;
+            this.Width = picView.Location.X + dgvPPUDD.Width + 100;
 
         }
         private void addlistMode()
