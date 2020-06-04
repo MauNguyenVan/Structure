@@ -735,7 +735,7 @@ namespace EarthQuake
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Ngày phát hành: 10/2019\n\nTiêu chuẩn áp dụng TCVN 9386:2012\n\nVersion 0.9", "About EarthQuake");
+            MessageBox.Show("Ngày phát hành: 10/2019\n\nTiêu chuẩn áp dụng TCVN 9386:2012\n\nVersion 1.0", "About EarthQuake");
         }
 
       

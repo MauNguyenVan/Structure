@@ -21,8 +21,9 @@ namespace EarthQuake
         private void frmAbout_Load(object sender, EventArgs e)
         {
             
-            string thongTin = "EarthQuake là phần mềm tính động đất theo\n" +
-                "TCVN 9386:2012\n\nDesigned by: Nguyễn Văn Mậu-2014x7 HAU\n\nMọi thắc mắc, góp ý vui lòng liên hệ \nSDT: 0352233868\n";
+            string thongTin = "EarthQuake là phần mềm tính toán động đất theo\n" +
+                "TCVN 9386:2012\n\nDesigned by: Nguyễn Văn Mậu - 2014x7\nĐại học kiến trúc Hà Nội (HAU)" +
+                "\n\nMọi thắc mắc, góp ý vui lòng liên hệ \nSDT: 0352233868\n";
             labInfo.Text = thongTin;
             
             labInfo.ForeColor = Color.Black ;

@@ -85,7 +85,7 @@
             this.Name = "frmAbout";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "About : Nguyễn Văn Mậu";
+            this.Text = "About : Author";
             this.Load += new System.EventHandler(this.frmAbout_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picMe)).EndInit();
             this.ResumeLayout(false);

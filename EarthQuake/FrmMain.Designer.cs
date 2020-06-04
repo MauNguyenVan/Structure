@@ -94,6 +94,8 @@
             // 
             // cbxTinh
             // 
+            this.cbxTinh.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxTinh.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxTinh.DropDownWidth = 200;
             this.cbxTinh.FormattingEnabled = true;
             this.cbxTinh.Location = new System.Drawing.Point(192, 39);
@@ -115,6 +117,8 @@
             // 
             // cbxHuyen
             // 
+            this.cbxHuyen.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxHuyen.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxHuyen.DropDownWidth = 200;
             this.cbxHuyen.FormattingEnabled = true;
             this.cbxHuyen.Location = new System.Drawing.Point(192, 79);
@@ -579,21 +583,21 @@
             // licenseToolStripMenuItem
             // 
             this.licenseToolStripMenuItem.Name = "licenseToolStripMenuItem";
-            this.licenseToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.licenseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.licenseToolStripMenuItem.Text = "License";
             this.licenseToolStripMenuItem.Click += new System.EventHandler(this.licenseToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // tácGiảToolStripMenuItem
             // 
             this.tácGiảToolStripMenuItem.Name = "tácGiảToolStripMenuItem";
-            this.tácGiảToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.tácGiảToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tácGiảToolStripMenuItem.Text = "Tác giả";
             this.tácGiảToolStripMenuItem.Click += new System.EventHandler(this.tácGiảToolStripMenuItem_Click);
             // 

@@ -49,6 +49,7 @@
             // 
             this.txtSPT.Location = new System.Drawing.Point(13, 31);
             this.txtSPT.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSPT.MaxLength = 32768;
             this.txtSPT.Multiline = true;
             this.txtSPT.Name = "txtSPT";
             this.txtSPT.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -92,6 +93,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "frmSPT";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EarthQuake - SPT";
             this.Load += new System.EventHandler(this.frmSPT_Load);
             this.ResumeLayout(false);
