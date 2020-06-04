@@ -13,6 +13,13 @@ namespace EarthQuake
         [STAThread]
         static void Main()
         {
+            DateTime dt = DateTime.Now;
+            DateTime endDate = new DateTime(2020, 12, 30);
+            if(dt>endDate)
+            {
+                MessageBox.Show("Out of date, please contact with author to active","EarthQuake" );
+               return;
+            }    
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmMain());
