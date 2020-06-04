@@ -284,6 +284,7 @@
             // 
             this.dgvThongSo.AllowUserToAddRows = false;
             this.dgvThongSo.AllowUserToDeleteRows = false;
+            this.dgvThongSo.AllowUserToResizeRows = false;
             this.dgvThongSo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvThongSo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.thongSo,
@@ -489,6 +490,7 @@
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.saveAsToolStripMenuItem.Text = "SaveAs";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // importToolStripMenuItem
             // 
@@ -539,8 +541,8 @@
             this.tínhToánToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.runToolStripMenuItem});
             this.tínhToánToolStripMenuItem.Name = "tínhToánToolStripMenuItem";
-            this.tínhToánToolStripMenuItem.Size = new System.Drawing.Size(82, 21);
-            this.tínhToánToolStripMenuItem.Text = "Tính Toán";
+            this.tínhToánToolStripMenuItem.Size = new System.Drawing.Size(71, 21);
+            this.tínhToánToolStripMenuItem.Text = "Analysis";
             // 
             // runToolStripMenuItem
             // 
@@ -612,6 +614,7 @@
             // 
             this.dgvKQ.AllowUserToAddRows = false;
             this.dgvKQ.AllowUserToDeleteRows = false;
+            this.dgvKQ.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.dgvKQ.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKQ.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvKQ.Location = new System.Drawing.Point(3, 20);

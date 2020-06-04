@@ -14,7 +14,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace EarthQuake
 {
-   
+
     public partial class frmMain : System.Windows.Forms.Form
     {
         DataEarthQuake dataEQ = new DataEarthQuake();
@@ -469,9 +469,9 @@ namespace EarthQuake
             catch (Exception)
             {
 
-              //  throw;
+                //  throw;
             }
-          
+
 
             //cbxMode_SelectedIndexChanged( sender, e);
         }
@@ -485,8 +485,8 @@ namespace EarthQuake
         private void FPPUDD_eventTable(DataTable table, List<ModeXY> listModeXY)
         {
             dgvKQ.Columns.Clear();
-            dataEQ.dataModeXY= ModeXY = listModeXY;
-            dataEQ.dataTable =data = table;
+            ModeXY = listModeXY;
+            data = table;
 
             cbxPhuong.Items.Clear();
 
@@ -501,8 +501,8 @@ namespace EarthQuake
             cbxPhuong.ResetText();
             cbxDangDD.ResetText();
             txtChuKy.ResetText();
-           
-           
+
+
         }
 
 
@@ -515,7 +515,7 @@ namespace EarthQuake
         private void mdbToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-
+            radPPUDaoDong_Click(sender, e);
 
         }
 
@@ -639,6 +639,16 @@ namespace EarthQuake
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            dataEQ.tinh = cbxTinh.Text;
+            dataEQ.huyen = cbxHuyen.Text;
+            dataEQ.nenDat = cbxNenDat.Text;
+            dataEQ.gama = cbxHsQuanTrong.Text;
+            dataEQ.capdeo = cbxCapDeo.Text;
+            dataEQ.ketCau = cbxKetCau.Text;
+            dataEQ.phahoaiKw = txtPhaHoaiKw.Text;
+            dataEQ.deuDanMatDung = chkMatDungDD.Checked;
+            dataEQ.dataModeXY = ModeXY;
+            dataEQ.dataTable = data;
             if (File.Exists(fileName))
             {
                 Files.writeFile(fileName, dataEQ);
@@ -655,9 +665,13 @@ namespace EarthQuake
                     this.Text = softWareName + "-[" + fileName + "]";
                 }
             }
-           
-        }
 
+        }
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fileName = "";
+            saveToolStripMenuItem_Click(sender, e);
+        }
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
@@ -665,21 +679,32 @@ namespace EarthQuake
             if (open.ShowDialog() == DialogResult.OK)
             {
                 fileName = open.FileName;
-               
+
                 if (File.Exists(fileName))
                 {
                     this.Text = softWareName + "-[" + fileName + "]";
-                
-                   DataEarthQuake eq = Files.readFile(fileName) as DataEarthQuake;
+
+                    DataEarthQuake eq = Files.readFile(fileName) as DataEarthQuake;
+                   
                     panel1.Visible = true;
                     ModeXY = eq.dataModeXY;
-                   data = eq.dataTable;
-               dgvKQ.DataSource = eq.dataTable;
+                    data = eq.dataTable;
+                    dgvKQ.DataSource = eq.dataTable;
+
+                   cbxTinh.Text =eq.tinh ;
+                     cbxHuyen.Text= eq.huyen ;
+                     cbxNenDat.Text = eq.nenDat ;
+                    cbxHsQuanTrong.Text = eq.gama ;
+                     cbxCapDeo.Text = eq.capdeo;
+                     cbxKetCau.Text =eq.ketCau ;
+                     txtPhaHoaiKw.Text = eq.phahoaiKw ;
+                     chkMatDungDD.Checked = eq.deuDanMatDung ;
+
                     //  cbxPhuong.DataSource 
                     cbxPhuong.Items.Clear();
                     cbxPhuong.Items.Add('X');
                     cbxPhuong.Items.Add('Y');
-                    
+
                     fillcbxMode(eq.dataTable);
 
 
@@ -712,6 +737,8 @@ namespace EarthQuake
         {
             MessageBox.Show("Ngày phát hành: 10/2019\n\nTiêu chuẩn áp dụng TCVN 9386:2012\n\nVersion 0.9", "About EarthQuake");
         }
+
+      
     }
 
 
@@ -724,5 +751,13 @@ namespace EarthQuake
     {
         internal DataTable dataTable { get; set; } = new DataTable();
         internal List<ModeXY> dataModeXY { get; set; } = new List<ModeXY>();
+        internal String tinh { get; set; }
+        internal String huyen { get; set; }
+        internal String nenDat { get; set; }
+        internal string gama { get; set; }
+        internal String capdeo { get; set; }
+        internal String phahoaiKw { get; set; }
+        internal string ketCau { get; set; }
+        internal bool deuDanMatDung { get; set; }
     }
 }
