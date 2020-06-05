@@ -18,7 +18,7 @@ namespace EarthQuake
     public partial class frmMain : System.Windows.Forms.Form
     {
         DataEarthQuake dataEQ = new DataEarthQuake();
-        private string softWareName = "EarthQuake - Phần mềm tính toán động đất";
+        private string softWareName = "EarthQuake - Phần mềm tính toán tải trọng động đất";
         DataTable tablePPPhoPhanUng = new DataTable();
         Xuly.NenDatA nenDatA = new Xuly.NenDatA();
         Xuly.NenDatB nenDatB = new Xuly.NenDatB();
